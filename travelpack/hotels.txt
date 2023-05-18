@@ -1,4 +1,10 @@
 GrandHotel,London,80,1
-as,reretg,854,2
-ad,ewew,23,3
-fs,ffff,43,4
+Royal Oasis Hotel,Dublin,854,2
+Grand Excelsior Hotel,Rome,23,3
+Golden Crown Hotel,Vienna,43,4
+Palace Grand Hotel,Budapest,120,5
+Regal Manor Hotel,Lisbon,150,6
+Crystal Bay Hotel,Helsinki,200,7
+Imperial Park Hotel,Warsaw,180,8
+Elite Tower Hotel,Oslo,140,9
+Sapphire Sands Hotel,Athens,190,10
