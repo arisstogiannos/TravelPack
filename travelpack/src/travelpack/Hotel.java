@@ -48,8 +48,6 @@ public class Hotel {
 		String[] type = {"simple","suite"};
 		int[] capacity= {1,2,3,4};
 		
-		
-		
 		for (int j = 0; j < type.length; j++) {
 			for (int i = 0; i < capacity.length; i++) {
 				for (int k = 0; k < 3; k++) {
@@ -62,6 +60,15 @@ public class Hotel {
 		
 		
 	}
+	 
+	 public int calculatePrice() {
+//		 for(Room room:rooms) {
+//			 if(room.getType().equals("simple"))
+//				 price
+//		 }
+		 
+		 return price;
+	 }
 }
 
 

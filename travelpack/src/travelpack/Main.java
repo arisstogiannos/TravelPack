@@ -2,6 +2,10 @@ package travelpack;
 
 public class Main {
 
-	
-	GUI frame = new GUI();
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		GUI frame = new GUI();
+
+	}
+
 }

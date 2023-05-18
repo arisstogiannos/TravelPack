@@ -1,7 +1,7 @@
 package travelpack;
 
 public class Room {
-	private int price = 0;
+	private int priceMulti = 1;
 	private int code;
 	private String type;
 	private int capacity;
@@ -11,6 +11,7 @@ public class Room {
 		this.code=code;
 		this.type = type;
 		this.capacity = capacity;
+		this.priceMulti=CalculateRoomPrice();
 		for(int i = 0; i<12;i++) {
 			for(int j = 0;j<31;j++) {
 				available[i][j] = true;
@@ -18,11 +19,31 @@ public class Room {
 		}
 	}
 	
-	public int CalculateRoomPrice(String type,int capacity){
+	public int CalculateRoomPrice(){
 		
-		return price;
+		if(type.equals("suite")) {
+			priceMulti=2;
+		}
+		
+		return priceMulti;
 	}
 	
+	public int getPriceMulti() {
+		return priceMulti;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public boolean[][] getAvailable() {
+		return available;
+	}
+
 	public int getCode() {
 		return this.code;
 	}

@@ -2,36 +2,26 @@ package travelpack;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.ArrayList;
 
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-
-
-public class GUI extends JFrame{
-	
+public class GUI2 extends JFrame{
 	private JPanel panel = new JPanel();
-	private JTextField ProorismosTextField = new JTextField("Anazhthsh Proorismou");
-	private JTextField AfethriaTextField = new JTextField("Anazhthsh Afethrias");
+	private JTextField flightCategoryTextfield = new JTextField("Anazhthsh Proorismou");
+	private JTextField baggageTextField = new JTextField("Anazhthsh Afethrias");
 	private JTextField DianuktereuoeisTextField = new JTextField("Epilogh dianuktereuoewn");
 	private JTextField MhnasTextField = new JTextField("Epilogh Mhna");
 	
 	private JButton AnazhthshButton = new JButton("Anazhthsh");
-	UserOptions uo =new UserOptions();
-	public GUI() {
+	UserOptions uo;
+public GUI2(UserOptions u) {
+		uo = u;
 		
-		panel.add(ProorismosTextField);
-		panel.add(AfethriaTextField);
+		panel.add(flightCategoryTextfield);
+		panel.add(baggageTextField);
 		panel.add(DianuktereuoeisTextField);
 		panel.add(MhnasTextField);
 		panel.add(AnazhthshButton);
@@ -39,6 +29,7 @@ public class GUI extends JFrame{
 		this.setContentPane(panel);
 		
 		ButtonListener listener = new ButtonListener();
+		
 		AnazhthshButton.addActionListener(listener);
 		
 		this.setVisible(true);
@@ -50,12 +41,11 @@ public class GUI extends JFrame{
 	class ButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e)
 		{
-			uo.setDepCity(AfethriaTextField.getText());
-			uo.setDestination(ProorismosTextField.getText());
+			
+			uo.setDepCity(baggageTextField.getText());
+			uo.setDestination(flightCategoryTextfield.getText());
 			uo.setDays(Integer.parseInt(DianuktereuoeisTextField.getText()));
 			uo.setMonth(MhnasTextField.getText());
-			GUI2 Frame2 =new GUI2(uo);
 		}
 	}
-
 }

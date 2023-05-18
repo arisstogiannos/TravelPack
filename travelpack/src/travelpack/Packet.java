@@ -9,13 +9,10 @@ public class Packet {
 		
 		this.hotel = hotel;
 		this.flight = flight;
+		this.totalprice = calculateTotalPrice();
 		
 	}
 	public int calculateTotalPrice() {
-		int totalPrice = 0;
-		
-		
-		
-		return totalPrice;
+		return  hotel.getPrice() + flight.getPrice();		
 	}
 }
