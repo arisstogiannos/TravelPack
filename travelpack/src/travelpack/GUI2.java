@@ -12,7 +12,7 @@ public class GUI2 extends JFrame{
 	private JPanel panel = new JPanel();
 	private JTextField flightCategoryTextfield = new JTextField("Anazhthsh Proorismou");
 	private JTextField baggageTextField = new JTextField("Anazhthsh Afethrias");
-	private JTextField DianuktereuoeisTextField = new JTextField("Epilogh dianuktereuoewn");
+	private JTextField DianuktereuseisTextField = new JTextField("Epilogh dianuktereusewn");
 	private JTextField MhnasTextField = new JTextField("Epilogh Mhna");
 	
 	private JButton AnazhthshButton = new JButton("Anazhthsh");
@@ -22,7 +22,7 @@ public GUI2(UserOptions u) {
 		
 		panel.add(flightCategoryTextfield);
 		panel.add(baggageTextField);
-		panel.add(DianuktereuoeisTextField);
+		panel.add(DianuktereuseisTextField);
 		panel.add(MhnasTextField);
 		panel.add(AnazhthshButton);
 		
@@ -44,7 +44,7 @@ public GUI2(UserOptions u) {
 			
 			uo.setDepCity(baggageTextField.getText());
 			uo.setDestination(flightCategoryTextfield.getText());
-			uo.setDays(Integer.parseInt(DianuktereuoeisTextField.getText()));
+			uo.setDays(Integer.parseInt(DianuktereuseisTextField.getText()));
 			uo.setMonth(MhnasTextField.getText());
 		}
 	}

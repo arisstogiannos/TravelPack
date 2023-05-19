@@ -1,4 +1,4 @@
-package travelpack;
+ package travelpack;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,16 +23,16 @@ public class GUI extends JFrame{
 	private JPanel panel = new JPanel();
 	private JTextField ProorismosTextField = new JTextField("Anazhthsh Proorismou");
 	private JTextField AfethriaTextField = new JTextField("Anazhthsh Afethrias");
-	private JTextField DianuktereuoeisTextField = new JTextField("Epilogh dianuktereuoewn");
+	private JTextField DianuktereuseisTextField = new JTextField("Epilogh dianuktereusewn");
 	private JTextField MhnasTextField = new JTextField("Epilogh Mhna");
 	
 	private JButton AnazhthshButton = new JButton("Anazhthsh");
-	UserOptions uo =new UserOptions();
+	UserOptions uo = new UserOptions();
 	public GUI() {
 		
 		panel.add(ProorismosTextField);
 		panel.add(AfethriaTextField);
-		panel.add(DianuktereuoeisTextField);
+		panel.add(DianuktereuseisTextField);
 		panel.add(MhnasTextField);
 		panel.add(AnazhthshButton);
 		
@@ -52,7 +52,7 @@ public class GUI extends JFrame{
 		{
 			uo.setDepCity(AfethriaTextField.getText());
 			uo.setDestination(ProorismosTextField.getText());
-			uo.setDays(Integer.parseInt(DianuktereuoeisTextField.getText()));
+			uo.setDays(Integer.parseInt(DianuktereuseisTextField.getText()));
 			uo.setMonth(MhnasTextField.getText());
 			GUI2 Frame2 =new GUI2(uo);
 		}
