@@ -1,10 +1,36 @@
-GrandHotel,London,80,1
-Royal Oasis Hotel,Dublin,854,2
-Grand Excelsior Hotel,Rome,23,3
-Golden Crown Hotel,Vienna,43,4
-Palace Grand Hotel,Budapest,120,5
-Regal Manor Hotel,Lisbon,150,6
-Crystal Bay Hotel,Helsinki,200,7
-Imperial Park Hotel,Warsaw,180,8
-Elite Tower Hotel,Oslo,140,9
-Sapphire Sands Hotel,Athens,190,10
+Le Château Royale, Paris, 250, 1
+La Belle Epoque Hotel, Paris, 180, 2
+Hôtel Lumière, Paris, 200, 3
+Das Grandhotel, Berlin, 220, 4
+Der Kronenplatz, Berlin, 150, 5
+Das Grüne Oase, Berlin, 180, 6
+Hotel am Fluss, Berlin, 190, 7
+El Palacio Real, Madrid, 280, 8
+La Casa del Sol, Madrid, 190, 9
+Hotel Reina, Madrid, 220, 10
+Il Palazzo Imperiale, Rome, 300, 11
+La Villa Romana, Rome, 250, 12
+L'Oasi Eterna, Rome, 200, 13
+Hotel Bellavista, Rome, 180, 14
+The Acropolis View Hotel, Athens, 230, 15
+Athenian Palace Hotel, Athens, 190, 16
+Olive Grove Resort, Athens, 210, 17
+Hotel Parthenon, Athens, 180, 18
+Das Kronenschloss, Vienna, 260, 19
+Der Himmelsgarten, Vienna, 220, 20
+Hotel Amadeus, Vienna, 180, 21
+The Emerald Manor, Dublin, 280, 22
+The Dubliner's Rest, Dublin, 190, 23
+The Riverside Hotel, Dublin, 220, 24
+The Cloverleaf Inn, Dublin, 200, 25
+U Zlatého Beránka, Prague, 250, 26
+Pod Lipami Hotel, Prague, 180, 27
+Hotel Vltava, Prague, 200, 28
+Pałac Wiejski, Warsaw, 260, 29
+Hotel Królewski, Warsaw, 190, 30
+Hotel Polonia, Warsaw, 220, 31
+Hotel Warszawa, Warsaw, 200, 32
+O Palácio Real, Lisbon, 300, 33
+A Casa dos Ventos, Lisbon, 250, 34
+O Jardim Encantado, Lisbon, 200, 35
+Hotel Miradouro, Lisbon, 180, 36
