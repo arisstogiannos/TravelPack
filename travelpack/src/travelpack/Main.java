@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		GUI frame = new GUI();
+		Frame1 gui = new Frame1();
 
 	}
 
