@@ -8,9 +8,9 @@ public class Flight {
 	private String departureCity;
 	private String destinationCity;
 	private int price;
-	private String type;
+	private Object type;
 	private boolean baggage;
-	private int[] date;
+	private String date;
 //	private int[] time;
 	
 	public String getName() {
@@ -53,12 +53,12 @@ public class Flight {
 	}
 
 
-	public String getType() {
+	public Object getType() {
 		return type;
 	}
 
 
-	public void setType(String type) {
+	public void setType(Object type) {
 		this.type = type;
 	}
 
@@ -73,18 +73,18 @@ public class Flight {
 	}
 
 
-	public int[] getDate() {
+	public String getDate() {
 		return date;
 	}
 
 
-	public void setDate(int[] date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
 
-	public Flight(String departureCity, String destinationCity, String type, 
-			      boolean baggage, int[] date) {
+	public Flight(String departureCity, String destinationCity, Object type, 
+			      boolean baggage, String date) {
 		this.name="Pamak AirLines";
 		this.departureCity = departureCity;
 		this.destinationCity = destinationCity;
@@ -95,7 +95,7 @@ public class Flight {
 	}
 	
 	
-	public int calculatePrice(boolean baggage, String type) {
+	public int calculatePrice(boolean baggage, Object type) {
 		Random rand = new Random();
 		int price=rand.nextInt(120-80+1)+80;
 		if(baggage) {

@@ -61,13 +61,13 @@ public class Hotel {
 		
 	}
 	 
-	 public int calculatePrice() {
-//		 for(Room room:rooms) {
-//			 if(room.getType().equals("simple"))
-//				 price
-//		 }
+	 public void calculatePrice(UserOptions uo) {
+		
+		 if(uo.getRoomType().equals("suite")) {
+			 price=price*2;
+		 }
 		 
-		 return price;
+		
 	 }
 }
 

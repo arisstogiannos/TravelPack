@@ -7,17 +7,11 @@ import java.util.Scanner;
 
 public class HotelList {
 	static ArrayList<Hotel> hotels = new ArrayList<>();
-//	public static void main(String[] args) {
-//		HotelList hl = new HotelList();
-//		hl.createHotelList();
-//		PacketList pl = new PacketList();
-//		pl.createPacketList();
-//		
-//	}
 
 
 
-	public void createHotelList() {
+
+	public static void createHotelList(UserOptions uo) {
 		
 		 try {
 		      File f = new File("hotels.txt");
@@ -26,6 +20,7 @@ public class HotelList {
 		        String data = myReader.nextLine();
 		        String[] arrOfStr =data.split(",", 5);
 		        Hotel h = new Hotel(arrOfStr[0], arrOfStr[1], Integer.parseInt(arrOfStr[2]), Integer.parseInt(arrOfStr[3]));
+		        h.calculatePrice(uo);
 		        hotels.add(h);
 		        
 		      }

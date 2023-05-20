@@ -1,22 +1,24 @@
 package travelpack;
 
 public class UserOptions {
-	private String destination;
-	private String depCity;
-	private String pplNum;
-	private String roomType;
-	private String flightType;
-	private boolean baggage;
+	private String destination="";
+	private String depCity="";
+	private int pplNum;
+	private Object roomType;
+	private Object flightType;
+	private boolean baggage = false;
 	private int[] departureTime;
 	private int days;
-	private int[] date;
-	public int[] getDate() {
-		return date;
+	private String time;
+	private String date;
+	
+	public String getTime() {
+		return time;
 	}
-	public void setDate(int[] date) {
-		this.date = date;
+	public void setTime(String time) {
+		this.time = time;
 	}
-	private String month;
+	
 	public String getDestination() {
 		return destination;
 	}
@@ -29,22 +31,22 @@ public class UserOptions {
 	public void setDepCity(String depCity) {
 		this.depCity = depCity;
 	}
-	public String getPplNum() {
+	public int getPplNum() {
 		return pplNum;
 	}
-	public void setPplNum(String pplNum) {
+	public void setPplNum(int pplNum) {
 		this.pplNum = pplNum;
 	}
-	public String getRoomType() {
+	public Object getRoomType() {
 		return roomType;
 	}
-	public void setRoomType(String roomType) {
+	public void setRoomType(Object roomType) {
 		this.roomType = roomType;
 	}
-	public String getFlightType() {
+	public Object getFlightType() {
 		return flightType;
 	}
-	public void setFlightType(String flightType) {
+	public void setFlightType(Object flightType) {
 		this.flightType = flightType;
 	}
 	public boolean isBaggage() {
@@ -65,11 +67,11 @@ public class UserOptions {
 	public void setDays(int days) {
 		this.days = days;
 	}
-	public String getMonth() {
-		return month;
+	public String getDate() {
+		return date;
 	}
-	public void setMonth(String month) {
-		this.month = month;
+	public void setDate(String month) {
+		this.date = month;
 	}		
 
 	
