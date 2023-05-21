@@ -11,7 +11,14 @@ public class UserOptions {
 	private int days;
 	private String time;
 	private String date;
+	private String roomCapacity;
 	
+	public String getRoomCapacity() {
+		return roomCapacity;
+	}
+	public void setRoomCapacity(String roomCapacity) {
+		this.roomCapacity = roomCapacity;
+	}
 	public String getTime() {
 		return time;
 	}

@@ -106,6 +106,7 @@ public class Frame1 extends JFrame {
 				uo.setDepCity(DepCityTextField.getText());
 				
 				uo.setDestination(DestinationTextField.getText());
+		
 				uo.setDays(Integer.parseInt(DaysTextField.getText()));
 				uo.setDate(MonthTextField.getText());
 				Frame2 gui2=new Frame2(uo);

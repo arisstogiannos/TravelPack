@@ -12,6 +12,24 @@ public class Packet {
 		this.totalprice = calculateTotalPrice();
 		
 	}
+	public Hotel getHotel() {
+		return hotel;
+	}
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
+	}
+	public Flight getFlight() {
+		return flight;
+	}
+	public void setFlight(Flight flight) {
+		this.flight = flight;
+	}
+	public String getTotalprice() {
+		return Integer.toString(totalprice);
+	}
+	public void setTotalprice(int totalprice) {
+		this.totalprice = totalprice;
+	}
 	public int calculateTotalPrice() {
 		return  hotel.getPrice() + flight.getPrice();		
 	}

@@ -5,11 +5,11 @@ import java.awt.Font;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,6 +27,7 @@ public class Frame2 extends JFrame {
 	private JTextField txtApo;
 	private JTextField txtEws;
 	private boolean flag=false;
+	
 
 	/**
 	 * Launch the application.
@@ -229,10 +230,10 @@ public class Frame2 extends JFrame {
 				uo.setTime(txtApo.getText()+ "," + txtEws.getText());
 				uo.setRoomType(comboBox_1.getItemAt(comboBox_1.getSelectedIndex()));
 				uo.setPplNum((Integer)spinner.getValue());
+				uo.setRoomCapacity((String)cb.getItemAt(cb.getSelectedIndex()));
 				
 				
-				flag=true;
-				Frame3 gui3=new Frame3();
+				Frame3 gui3=new Frame3(PacketList.createPacketList(uo));
 				dispose();
 				gui3.setVisible(true);
 			}

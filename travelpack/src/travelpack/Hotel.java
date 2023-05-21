@@ -8,7 +8,8 @@ public class Hotel {
 	private String city;
 	private int price;
 	private int code;
-	ArrayList<Room> rooms = new ArrayList<>();
+	ArrayList<Room> rooms;
+	
 	
 	public String getName() {
 		return name;
@@ -40,11 +41,12 @@ public class Hotel {
 		this.city = city;
 		this.price = price;
 		this.code = code;
-		
+		rooms = createRoomList();
 	}
 	
 	
-	 void createRoomList() {
+	 public ArrayList<Room> createRoomList() {
+		 ArrayList<Room> rooms = new ArrayList<>();
 		String[] type = {"simple","suite"};
 		int[] capacity= {1,2,3,4};
 		
@@ -53,10 +55,11 @@ public class Hotel {
 				for (int k = 0; k < 3; k++) {
 					Room r = new Room(type[j], capacity[i], (j+1)*100 + (i+1)*10 +k);
 					rooms.add(r);
-					System.out.println(r.getCode());
 				}
 			}
 		}
+		
+		return rooms;
 		
 		
 	}

@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HotelList {
-	static ArrayList<Hotel> hotels = new ArrayList<>();
 
 
 
 
-	public static void createHotelList(UserOptions uo) {
+	public static ArrayList<Hotel> createHotelList(UserOptions uo) {
+		ArrayList<Hotel> hotels = new ArrayList<>();
 		
 		 try {
 		      File f = new File("hotels.txt");
@@ -19,7 +19,7 @@ public class HotelList {
 		      while (myReader.hasNextLine()) {
 		        String data = myReader.nextLine();
 		        String[] arrOfStr =data.split(",", 5);
-		        Hotel h = new Hotel(arrOfStr[0], arrOfStr[1], Integer.parseInt(arrOfStr[2]), Integer.parseInt(arrOfStr[3]));
+		        Hotel h = new Hotel(arrOfStr[0].toUpperCase().trim(), arrOfStr[1].toUpperCase().trim(), Integer.parseInt(arrOfStr[2].trim()), Integer.parseInt(arrOfStr[3].trim()));
 		        h.calculatePrice(uo);
 		        hotels.add(h);
 		        
@@ -29,10 +29,11 @@ public class HotelList {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    }
+		 return hotels;
 	}
-	public static ArrayList<Hotel> getHotels() {
-		return hotels;
-	}
+//	public static ArrayList<Hotel> getHotels() {
+//		return hotels;
+//	}
 
 }
 
