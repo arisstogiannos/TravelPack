@@ -1,5 +1,18 @@
 package travelpack;
 
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -35,6 +48,7 @@ public class FramePlhrwmhs extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+
 		OnomaKsenodoxeiou = new JLabel();
 		OnomaKsenodoxeiou.setHorizontalAlignment(SwingConstants.CENTER);
 		OnomaKsenodoxeiou.setFont(new Font("Wide Latin", Font.PLAIN, 16));
@@ -63,6 +77,7 @@ public class FramePlhrwmhs extends JFrame {
 		flightPanel.setBounds(5, 220, 250, 180);
 		contentPane.add(flightPanel);
 		
+
 		txtArithmosKartas = new JTextField();
 		txtArithmosKartas.setHorizontalAlignment(SwingConstants.CENTER);
 		txtArithmosKartas.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -99,6 +114,7 @@ public class FramePlhrwmhs extends JFrame {
 		btnNewButton.setBackground(Color.DARK_GRAY);
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 17));
+
 		btnNewButton.setBounds(10, 130, 225, 35);
 		paymentPanel.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
@@ -108,5 +124,15 @@ public class FramePlhrwmhs extends JFrame {
 		});
 		
 		
+
+		btnNewButton.setBounds(238, 365, 240, 35);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FrameOloklhrwsh guiOloklhrwshs  = new FrameOloklhrwsh();
+				guiOloklhrwshs.setVisible(true);
+			}
+		});
+		contentPane.add(btnNewButton);
+
 	}
 }

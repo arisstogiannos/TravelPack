@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,7 +22,9 @@ public class Frame1 extends JFrame {
 	private JTextField DepCityTextField;
 	private JTextField DaysTextField;
 	private JTextField MonthTextField;
-	
+
+	private JLabel lblNewLabel_1;
+
 //	private UserOptions uo;
 
 	/**
@@ -47,7 +50,7 @@ public class Frame1 extends JFrame {
 		
 		setTitle("TravelPack");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 587, 391);
+		setBounds(100, 100, 587, 434);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
@@ -59,7 +62,7 @@ public class Frame1 extends JFrame {
 		DestinationTextField.setHorizontalAlignment(SwingConstants.CENTER);
 		DestinationTextField.setForeground(Color.BLACK);
 		DestinationTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
-		DestinationTextField.setBounds(70, 90, 179, 34);
+		DestinationTextField.setBounds(62, 168, 179, 34);
 		contentPane.add(DestinationTextField);
 		DestinationTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		DestinationTextField.setColumns(10);
@@ -67,7 +70,7 @@ public class Frame1 extends JFrame {
 		DepCityTextField = new JTextField("Anazhthsh Afethrias");
 		DepCityTextField.setHorizontalAlignment(SwingConstants.CENTER);
 		DepCityTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
-		DepCityTextField.setBounds(70, 170, 179, 34);
+		DepCityTextField.setBounds(62, 248, 179, 34);
 		DepCityTextField.setColumns(10);
 		DepCityTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		contentPane.add(DepCityTextField);
@@ -75,7 +78,7 @@ public class Frame1 extends JFrame {
 		DaysTextField = new JTextField("Epilogh Dianuktereusewn");
 		DaysTextField.setHorizontalAlignment(SwingConstants.CENTER);
 		DaysTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
-		DaysTextField.setBounds(341, 170, 179, 34);
+		DaysTextField.setBounds(333, 248, 179, 34);
 		DaysTextField.setColumns(10);
 		DaysTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		contentPane.add(DaysTextField);
@@ -83,7 +86,7 @@ public class Frame1 extends JFrame {
 		MonthTextField = new JTextField("Epilogh Mhna");
 		MonthTextField.setHorizontalAlignment(SwingConstants.CENTER);
 		MonthTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
-		MonthTextField.setBounds(341, 90, 179, 34);
+		MonthTextField.setBounds(333, 168, 179, 34);
 		MonthTextField.setColumns(10);
 		MonthTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		
@@ -92,14 +95,14 @@ public class Frame1 extends JFrame {
 		
 		
 		JLabel lblNewLabel = new JLabel("TravelPack");
-		lblNewLabel.setForeground(Color.RED);
-		lblNewLabel.setBounds(210, 15, 315, 47);
+		lblNewLabel.setForeground(new Color(0, 128, 192));
+		lblNewLabel.setBounds(214, 118, 162, 27);
 		lblNewLabel.setFont(new Font("Poppins", Font.BOLD, 28));
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Anazhthsh");
 		btnNewButton.setBackground(Color.RED);
-		btnNewButton.setBounds(137, 250, 309, 40);
+		btnNewButton.setBounds(129, 328, 309, 40);
 		btnNewButton.setFont(new Font("Poppins", Font.PLAIN, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -117,5 +120,11 @@ public class Frame1 extends JFrame {
 			}
 		});
 		contentPane.add(btnNewButton);
+		
+		lblNewLabel_1 = new JLabel();
+		lblNewLabel_1.setBounds(239, 11, 100, 107);
+		ImageIcon img = new ImageIcon(this.getClass().getResource("/Screenshot_32.jpg"));
+		lblNewLabel_1.setIcon(img);
+		contentPane.add(lblNewLabel_1);
 	}
 }

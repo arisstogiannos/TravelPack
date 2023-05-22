@@ -21,10 +21,16 @@ public class Frame3 extends JFrame {
 	JLabel displayField;
 
 	private JPanel contentPane;
+
 	private int y= -92;	
 	
 
+
+
 	public Frame3(ArrayList<Packet> packetList, UserOptions uo) {
+
+	
+
 		
 		int listSize = packetList.size();
 		ArrayList<JPanel> panels= new ArrayList<>();
@@ -36,7 +42,7 @@ public class Frame3 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		
+
 		Label label_2 = new Label("Diathesima Ksenodoxeia - Apotelesmata "+listSize+" apo "+listSize+" sunolika");
 		label_2.setAlignment(Label.CENTER);
 		label_2.setForeground(new Color(0, 0, 0));

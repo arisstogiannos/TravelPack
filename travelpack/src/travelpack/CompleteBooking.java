@@ -17,7 +17,7 @@ public class CompleteBooking {
 				
 					try {
 				      FileWriter myWriter = new FileWriter("Bookings.txt",true);
-				      myWriter.write(uo.getDateAsString()+"/"+uo.getDays()+"/"+hotel.getName()+"/"+availableRoom.getCode());
+				      myWriter.write(uo.getDateAsString()+"/"+uo.getDays()+"/"+hotel.getName()+"/"+availableRoom.getCode()+System.lineSeparator());
 				      myWriter.close();
 				      System.out.println("Successfully wrote to the file.");
 				    } catch (IOException e) {
