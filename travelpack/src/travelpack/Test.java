@@ -7,8 +7,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-			String s ="121";
-			System.out.println(s.contains("11"));
+			
 			
 //			 boolean[][] available = new boolean[12][31];
 //			 int[] date=uo.getDate();
