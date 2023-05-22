@@ -24,23 +24,23 @@ public class FramePlhrwmhs extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FramePlhrwmhs frame = new FramePlhrwmhs();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					FramePlhrwmhs frame = new FramePlhrwmhs();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public FramePlhrwmhs() {
+	public FramePlhrwmhs(Packet p) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 520, 450);
 		contentPane = new JPanel();
@@ -52,7 +52,7 @@ public class FramePlhrwmhs extends JFrame {
 		txtOnomaKsenodoxeiou = new JTextField();
 		txtOnomaKsenodoxeiou.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOnomaKsenodoxeiou.setFont(new Font("Wide Latin", Font.PLAIN, 16));
-		txtOnomaKsenodoxeiou.setText("Onoma Ksenodoxeiou");
+		txtOnomaKsenodoxeiou.setText(p.getHotel().getName());
 		txtOnomaKsenodoxeiou.setBounds(42, 25, 317, 48);
 		contentPane.add(txtOnomaKsenodoxeiou);
 		txtOnomaKsenodoxeiou.setColumns(10);
