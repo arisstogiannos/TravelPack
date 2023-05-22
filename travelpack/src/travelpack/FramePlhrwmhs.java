@@ -7,6 +7,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.SwingConstants;
@@ -53,7 +56,7 @@ public class FramePlhrwmhs extends JFrame {
 		txtOnomaKsenodoxeiou.setHorizontalAlignment(SwingConstants.CENTER);
 		txtOnomaKsenodoxeiou.setFont(new Font("Wide Latin", Font.PLAIN, 16));
 		txtOnomaKsenodoxeiou.setText(p.getHotel().getName());
-		txtOnomaKsenodoxeiou.setBounds(42, 25, 317, 48);
+		txtOnomaKsenodoxeiou.setBounds(42, 25, 354, 48);
 		contentPane.add(txtOnomaKsenodoxeiou);
 		txtOnomaKsenodoxeiou.setColumns(10);
 		
@@ -94,6 +97,12 @@ public class FramePlhrwmhs extends JFrame {
 		btnNewButton.setForeground(Color.RED);
 		btnNewButton.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 17));
 		btnNewButton.setBounds(238, 365, 240, 35);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FrameOloklhrwsh guiOloklhrwshs  = new FrameOloklhrwsh();
+				guiOloklhrwshs.setVisible(true);
+			}
+		});
 		contentPane.add(btnNewButton);
 	}
 }
