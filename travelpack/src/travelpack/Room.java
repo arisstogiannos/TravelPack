@@ -1,5 +1,9 @@
 package travelpack;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Room {
 	private int priceMulti = 1;
 	private int code;
@@ -17,6 +21,24 @@ public class Room {
 		this.type = type;
 		this.capacity = capacity;
 		this.priceMulti=CalculateRoomPrice();
+		
+
+//		 try {
+//		      File f = new File("Bookings.txt");
+//		      Scanner myReader = new Scanner(f);
+//		      while (myReader.hasNextLine()) {
+//		        String data = myReader.nextLine();
+//		        String[] arrOfStr =data.split("/", 7);
+//		        
+//		       
+//		        
+//		      }
+//		      myReader.close();
+//		    } catch (FileNotFoundException e) {
+//		      System.out.println("An error occurred.");
+//		      e.printStackTrace();
+//		    }
+		
 		for(int i = 0; i<12;i++) {
 			for(int j = 0;j<31;j++) {
 				available[i][j] = true;

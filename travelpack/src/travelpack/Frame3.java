@@ -24,7 +24,7 @@ public class Frame3 extends JFrame {
 	private int y= -92;	
 	
 
-	public Frame3(ArrayList<Packet> packetList) {
+	public Frame3(ArrayList<Packet> packetList, UserOptions uo) {
 		
 		int listSize = packetList.size();
 		ArrayList<JPanel> panels= new ArrayList<>();
@@ -46,7 +46,7 @@ public class Frame3 extends JFrame {
 		
 		for(int i=0;i<listSize*2;i+=2) {
 			y+=148;
-			addPanel(packetList, panels, i/2, y);
+			addPanel(packetList, panels, i/2, y, uo);
 			for (int j = 0; j < 2; j++) {
 				contentPane.add(panels.get(i+j));
 			}
@@ -54,7 +54,7 @@ public class Frame3 extends JFrame {
 
 	}
 	
-	public void addPanel(ArrayList<Packet> packetList, ArrayList<JPanel> panels, int i, int y) {
+	public void addPanel(ArrayList<Packet> packetList, ArrayList<JPanel> panels, int i, int y, UserOptions uo) {
 		
 		
 		
@@ -110,7 +110,7 @@ public class Frame3 extends JFrame {
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				FramePlhrwmhs gui4 =new FramePlhrwmhs(packetList.get(i));
+				FramePlhrwmhs gui4 =new FramePlhrwmhs(packetList.get(i), uo);
 				dispose();
 				gui4.setVisible(true);
 			}});

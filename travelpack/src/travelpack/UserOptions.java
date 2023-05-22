@@ -12,8 +12,20 @@ public class UserOptions {
 	private String time;
 	private String date;
 	private String roomCapacity;
+	private int capacityAsInt;
 	
 	
+	public int getCapacityAsInt() {
+		if(roomCapacity.contains("Mono")) {
+			return 1;
+		}else if(roomCapacity.contains("Di")) {
+			return 2;
+		}else if(roomCapacity.contains("Tri")) {
+			return 3;
+		}else {
+			return 4;
+		}
+	}
 	public String getRoomCapacity() {
 		return roomCapacity;
 	}

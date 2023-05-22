@@ -2,6 +2,8 @@ package travelpack;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -24,7 +26,7 @@ public class FramePlhrwmhs extends JFrame {
 
 
 	
-	public FramePlhrwmhs(Packet p) {
+	public FramePlhrwmhs(Packet p, UserOptions uo) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 520, 450);
 		contentPane = new JPanel();
@@ -99,6 +101,11 @@ public class FramePlhrwmhs extends JFrame {
 		btnNewButton.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 17));
 		btnNewButton.setBounds(10, 130, 225, 35);
 		paymentPanel.add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CompleteBooking.bookRoom(p.getHotel(), uo);
+			}
+		});
 		
 		
 	}

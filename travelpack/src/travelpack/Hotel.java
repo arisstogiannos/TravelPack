@@ -9,6 +9,7 @@ public class Hotel {
 	private int price;
 	private int code;
 	ArrayList<Room> rooms;
+	private Room availableRoom;
 	
 	
 	public String getName() {
@@ -63,6 +64,44 @@ public class Hotel {
 		
 		
 	}
+	 public boolean isAvailable(UserOptions uo) {
+		 boolean flag=false;
+		 boolean[][] available;
+		 int date[]=uo.getDate();
+		 for(Room room:rooms) {
+			 if(uo.getRoomType().equals(room.getType())&&room.getCapacity()==uo.getCapacityAsInt()) {
+				 available = room.getAvailable();
+				 for(int i=date[0];i<date[0]+uo.getDays();i++) {
+					 if(!available[date[1]-1][i]) {
+						 flag = false;	
+					 }else {
+						 flag = true;
+						 break;
+					 }
+				 }
+			 }
+		 }
+		 return flag;
+	 }
+	 
+	 public Room availableRoom(UserOptions uo) {
+		 boolean flag=true;
+		 boolean[][] available;
+		 int date[]=uo.getDate();
+		 for(Room room:rooms) {
+			 if(uo.getRoomType().equals(room.getType())&&room.getCapacity()==uo.getCapacityAsInt()) {
+				 available = room.getAvailable();
+				 for(int i=date[0];i<date[0]+uo.getDays();i++) {
+					 if(!available[date[1]-1][i]) {
+						 flag = false;	
+						 break;
+					 }
+				 }
+				 if(flag) return room;
+			 }
+		 }
+		 return null;
+	 }
 	 
 	 public void calculatePrice(UserOptions uo) {
 		

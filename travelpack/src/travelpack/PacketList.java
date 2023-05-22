@@ -16,7 +16,7 @@ public class PacketList {
 		Flight flight = new Flight(uo.getDepCity(),uo.getDestination(),uo.getFlightType(),uo.isBaggage(),uo.getDate());
 
 		for (Hotel hotel :hotels) {
-			if(uo.getDestination().trim().toUpperCase().equals(hotel.getCity().toUpperCase())) {
+			if(uo.getDestination().trim().toUpperCase().equals(hotel.getCity().toUpperCase())&&hotel.isAvailable(uo)) {
 				Packet p = new Packet(hotel, flight);
 				packetList.add(p);
 			}

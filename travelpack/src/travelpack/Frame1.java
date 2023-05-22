@@ -21,6 +21,7 @@ public class Frame1 extends JFrame {
 	private JTextField DepCityTextField;
 	private JTextField DaysTextField;
 	private JTextField MonthTextField;
+	
 //	private UserOptions uo;
 
 	/**
@@ -112,8 +113,6 @@ public class Frame1 extends JFrame {
 				Frame2 gui2=new Frame2(uo);
 				gui2.setVisible(true);
 				dispose();
-				
-				
 				
 			}
 		});

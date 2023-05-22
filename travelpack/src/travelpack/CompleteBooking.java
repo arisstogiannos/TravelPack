@@ -1,24 +1,33 @@
 package travelpack;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class CompleteBooking {
 	
 	
 	public static void bookRoom(Hotel hotel,UserOptions uo) {
-		 boolean[][] available = new boolean[12][31];
+		boolean[][] available;
+		Room availableRoom;
 		 int[] date=uo.getDate();
-		 System.out.println("op");
 		for(Room room:hotel.rooms) {
-			if(room.getType().equals(uo.getRoomType())) {
+			if(hotel.isAvailable(uo)) {
 				available=room.getAvailable();
-				for (int i = date[0]; i <= date[0] + uo.getDays(); i++) {
-					available[date[1]][i]=false;
-					System.out.println(i+" : "+date[1]);
-					System.out.println(available[date[1]][i]);
+				availableRoom=hotel.availableRoom(uo);
+				
+					try {
+				      FileWriter myWriter = new FileWriter("Bookings.txt",true);
+				      myWriter.write(uo.getDateAsString()+"/"+uo.getDays()+"/"+hotel.getName()+"/"+availableRoom.getCode());
+				      myWriter.close();
+				      System.out.println("Successfully wrote to the file.");
+				    } catch (IOException e) {
+				      System.out.println("An error occurred.");
+				      e.printStackTrace();
+				    }
 
-				} 
+				room.setAvailable(available);
 				break;
 			}
 		}
 	}
-
 }

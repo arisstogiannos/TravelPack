@@ -26,7 +26,7 @@ public class Frame2 extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtApo;
 	private JTextField txtEws;
-	private boolean flag=false;
+	
 	
 
 	/**
@@ -233,7 +233,7 @@ public class Frame2 extends JFrame {
 				uo.setRoomCapacity((String)cb.getItemAt(cb.getSelectedIndex()));
 				
 				
-				Frame3 gui3=new Frame3(PacketList.createPacketList(uo));
+				Frame3 gui3=new Frame3(PacketList.createPacketList(uo), uo);
 				dispose();
 				gui3.setVisible(true);
 			}
