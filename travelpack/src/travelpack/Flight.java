@@ -10,6 +10,7 @@ public class Flight {
 	private int price;
 	private Object type;
 	private boolean baggage;
+	private int[] dateAsNum;
 	private String date;
 //	private int[] time;
 	
@@ -84,13 +85,13 @@ public class Flight {
 
 
 	public Flight(String departureCity, String destinationCity, Object type, 
-			      boolean baggage, String date) {
+			      boolean baggage, int[] date) {
 		this.name="Pamak AirLines";
 		this.departureCity = departureCity;
 		this.destinationCity = destinationCity;
 		this.type = type;
 		this.baggage = baggage;
-		this.date = date;
+		this.dateAsNum = date;
 		this.price = calculatePrice(baggage, type);
 	}
 	

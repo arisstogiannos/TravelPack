@@ -13,6 +13,7 @@ public class UserOptions {
 	private String date;
 	private String roomCapacity;
 	
+	
 	public String getRoomCapacity() {
 		return roomCapacity;
 	}
@@ -74,8 +75,17 @@ public class UserOptions {
 	public void setDays(int days) {
 		this.days = days;
 	}
-	public String getDate() {
+	public String getDateAsString() {
 		return date;
+	}
+	
+	public int[] getDate() {
+		int[] dates= {1,1,1,1,1};
+		String[] strArr= date.split("/",4);
+		for(int i=0;i<strArr.length;i++) {
+			dates[i]=Integer.parseInt(strArr[i]);
+		}
+		return dates;
 	}
 	public void setDate(String month) {
 		this.date = month;

@@ -8,34 +8,22 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class Frame3 extends JFrame {
+	
+	ImageIcon image;
+	JLabel displayField;
 
 	private JPanel contentPane;
-//
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Frame3 frame = new Frame3();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	private int y= -92;	
+	
 
-	/**
-	 * Create the frame.
-	 */
 	public Frame3(ArrayList<Packet> packetList) {
 		
 		int listSize = packetList.size();
@@ -45,10 +33,8 @@ public class Frame3 extends JFrame {
 		setBounds(100, 100, 556, listSize*200);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
 		
 		
 		Label label_2 = new Label("Diathesima Ksenodoxeia - Apotelesmata "+listSize+" apo "+listSize+" sunolika");
@@ -59,132 +45,71 @@ public class Frame3 extends JFrame {
 		contentPane.add(label_2);
 		
 		for(int i=0;i<listSize*2;i+=2) {
-			addPanel(packetList, panels, i/2);
+			y+=148;
+			addPanel(packetList, panels, i/2, y);
 			for (int j = 0; j < 2; j++) {
 				contentPane.add(panels.get(i+j));
-				
 			}
 		}
-//		JPanel panel_1_1 = new JPanel();
-//		panel_1_1.setLayout(null);
-//		panel_1_1.setForeground(Color.BLACK);
-//		panel_1_1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-//		panel_1_1.setBounds(10, 204, 120, 118);
-//		contentPane.add(panel_1_1);
-//		
-//		JPanel panel_1_2 = new JPanel();
-//		panel_1_2.setLayout(null);
-//		panel_1_2.setForeground(Color.BLACK);
-//		panel_1_2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-//		panel_1_2.setBounds(136, 56, 357, 118);
-//		contentPane.add(panel_1_2);
-//		
-//		Label label_3_1 = new Label(packetList.get(0).getHotel().getName());
-//		label_3_1.setForeground(Color.BLACK);
-//		label_3_1.setFont(new Font("Dialog", Font.PLAIN, 15));
-//		label_3_1.setBounds(10, 10, 200, 22);
-//		panel_1_2.add(label_3_1);
-//		
-//		Label label_1_1_1 = new Label("Plhrofories Pthshs");
-//		label_1_1_1.setForeground(Color.RED);
-//		label_1_1_1.setFont(new Font("Dialog", Font.PLAIN, 11));
-//		label_1_1_1.setBounds(40, 38, 94, 22);
-//		panel_1_2.add(label_1_1_1);
-//		
-//		Label label_3_1_1 = new Label(packetList.get(0).getTotalprice());
-//		label_3_1_1.setForeground(Color.BLACK);
-//		label_3_1_1.setFont(new Font("Dialog", Font.PLAIN, 15));
-//		label_3_1_1.setBounds(300, 23, 47, 22);
-//		panel_1_2.add(label_3_1_1);
-//		
-//		JButton btn1 = new JButton("Kante Krathsh");
-//		btn1.setForeground(new Color(255, 0, 0));
-//		btn1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-//		btn1.setBounds(226, 66, 121, 41);
-//		panel_1_2.add(btn1);
-		
-//		JPanel panel_1_1 = new JPanel();
-//		panel_1_1.setLayout(null);
-//		panel_1_1.setForeground(Color.BLACK);
-//		panel_1_1.setBorder(BorderFactory.createLineBorder(Color.GREEN));
-//		panel_1_1.setBounds(10, 204, 120, 118);
-//		panels.add(panel_1_1);
-//		
-//		JPanel panel_1 = new JPanel();
-//		panel_1.setLayout(null);
-//		panel_1.setForeground(Color.BLACK);
-//		panel_1.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-//		panel_1.setBounds(136, 204, 357, 118);
-//		contentPane.add(panel_1);
-//		
-//		Label label_3 = new Label(packetList.get(1).getHotel().getName());
-//		label_3.setForeground(Color.BLACK);
-//		label_3.setFont(new Font("Dialog", Font.PLAIN, 15));
-//		label_3.setBounds(10, 10, 200, 22);
-//		panel_1.add(label_3);
-//		
-//		Label label_1_1 = new Label("Plhrofories Pthshs");
-//		label_1_1.setForeground(Color.RED);
-//		label_1_1.setFont(new Font("Dialog", Font.PLAIN, 11));
-//		label_1_1.setBounds(40, 38, 94, 22);
-//		panel_1.add(label_1_1);
-//		
-//		JButton btn2 = new JButton("Kante Krathsh");
-//		btn2.setForeground(Color.RED);
-//		btn2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-//		btn2.setBounds(226, 66, 121, 41);
-//		panel_1.add(btn2);
-//		
-//		Label label_3_1_1_1 = new Label("Timh");
-//		label_3_1_1_1.setForeground(Color.BLACK);
-//		label_3_1_1_1.setFont(new Font("Dialog", Font.PLAIN, 15));
-//		label_3_1_1_1.setBounds(300, 24, 47, 22);
-//		panel_1.add(label_3_1_1_1);
+
 	}
 	
-	public void addPanel(ArrayList<Packet> packetList, ArrayList<JPanel> panels, int i) {
+	public void addPanel(ArrayList<Packet> packetList, ArrayList<JPanel> panels, int i, int y) {
 		
-		int y[]= {56,56+148,204+148,204+148+148};		
-				
+		
+		
 		JPanel panel_1_1_1 = new JPanel();
 		panel_1_1_1.setLayout(null);
 		panel_1_1_1.setForeground(Color.BLACK);
-		panel_1_1_1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		panel_1_1_1.setBounds(10, y[i], 120, 118);
+		panel_1_1_1.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
+		panel_1_1_1.setBounds(10, y, 120, 118);
 		panels.add(panel_1_1_1);
+		
+		
 		
 	
 		JPanel panel_1_2 = new JPanel();
 		panel_1_2.setLayout(null);
 		panel_1_2.setForeground(Color.BLACK);
-		panel_1_2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		panel_1_2.setBounds(136, y[i], 357, 118);
+		panel_1_2.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
+		panel_1_2.setBounds(136, y, 357, 118);
 		panels.add(panel_1_2);
 		
 		Label label_3_1 = new Label(packetList.get(i).getHotel().getName());
 		label_3_1.setForeground(Color.BLACK);
-		label_3_1.setFont(new Font("Dialog", Font.PLAIN, 15));
+		label_3_1.setFont(new Font("Poppins", Font.PLAIN, 15));
 		label_3_1.setBounds(10, 10, 230, 22);
 		panel_1_2.add(label_3_1);
 		
-		Label label_1_1_1 = new Label("Plhrofories Pthshs");
-		label_1_1_1.setForeground(Color.RED);
-		label_1_1_1.setFont(new Font("Dialog", Font.PLAIN, 11));
-		label_1_1_1.setBounds(40, 38, 94, 22);
-		panel_1_2.add(label_1_1_1);
 		
-		Label label_3_1_1 = new Label(packetList.get(i).getTotalprice());
+		
+		
+//		Label label_1_1_1 = new Label("Plhrofories Pthshs");
+//		label_1_1_1.setForeground(Color.RED);
+//		label_1_1_1.setFont(new Font("Montestratt", Font.PLAIN, 11));
+//		label_1_1_1.setBounds(35, 50, 94, 22);
+//		panel_1_2.add(label_1_1_1);
+		
+		Label label_3_1_1 = new Label("Timh paketou:");
 		label_3_1_1.setForeground(Color.BLACK);
 		label_3_1_1.setFont(new Font("Dialog", Font.PLAIN, 15));
-		label_3_1_1.setBounds(300, 23, 47, 22);
+		label_3_1_1.setBounds(240, 10, 100, 20);
 		panel_1_2.add(label_3_1_1);
 		
+		Label timh = new Label(packetList.get(i).getTotalprice()+"$");
+		timh.setForeground(Color.BLACK);
+		timh.setFont(new Font("Dialog", Font.PLAIN, 15));
+		timh.setBounds(290, 30, 50, 20);
+		panel_1_2.add(timh);
+		
 		JButton btn1 = new JButton("Kante Krathsh");
-		btn1.setForeground(new Color(255, 0, 0));
-		btn1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
+		btn1.setForeground(Color.WHITE);
+		btn1.setBackground(Color.DARK_GRAY);
+		btn1.setFont(new Font("Montestratt", Font.BOLD , 12));
 		btn1.setBounds(226, 66, 121, 41);
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				FramePlhrwmhs gui4 =new FramePlhrwmhs(packetList.get(i));
 				dispose();
 				gui4.setVisible(true);

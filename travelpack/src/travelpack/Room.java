@@ -3,6 +3,11 @@ package travelpack;
 public class Room {
 	private int priceMulti = 1;
 	private int code;
+	
+	public void setAvailable(boolean[][] available) {
+		this.available = available;
+	}
+
 	private String type;
 	private int capacity;
 	private boolean[][] available = new boolean[12][31];

@@ -1,6 +1,6 @@
-Le Château Royale, Paris,250,1
-La Belle Epoque Hotel, Paris,180,2
-Hôtel Lumière, Paris,200,3
+Le Château Royale, Paris,120,1
+La Belle Epoque Hotel, Paris,100,2
+Hôtel Lumière, Paris,130,3
 Das Grandhotel,Berlin,220,4
 Der Kronenplatz,Berlin,150,5
 Das Grüne Oase,Berlin,180,6

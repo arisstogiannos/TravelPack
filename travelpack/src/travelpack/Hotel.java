@@ -47,7 +47,7 @@ public class Hotel {
 	
 	 public ArrayList<Room> createRoomList() {
 		 ArrayList<Room> rooms = new ArrayList<>();
-		String[] type = {"simple","suite"};
+		String[] type = {"Simple","Suite"};
 		int[] capacity= {1,2,3,4};
 		
 		for (int j = 0; j < type.length; j++) {
@@ -66,9 +66,10 @@ public class Hotel {
 	 
 	 public void calculatePrice(UserOptions uo) {
 		
-		 if(uo.getRoomType().equals("suite")) {
+		 if(uo.getRoomType().equals("suite")) 
 			 price=price*2;
-		 }
+		 
+		 price=price*uo.getPplNum();
 		 
 		
 	 }
