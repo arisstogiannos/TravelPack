@@ -77,7 +77,6 @@ public class FramePlhrwmhs extends JFrame {
 		flightPanel.setBounds(5, 220, 250, 180);
 		contentPane.add(flightPanel);
 		
-
 		txtArithmosKartas = new JTextField();
 		txtArithmosKartas.setHorizontalAlignment(SwingConstants.CENTER);
 		txtArithmosKartas.setFont(new Font("Tahoma", Font.PLAIN, 17));
