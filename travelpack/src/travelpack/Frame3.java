@@ -48,7 +48,7 @@ public class Frame3 extends JFrame {
 		label_2.setAlignment(Label.CENTER);
 		label_2.setForeground(Color.LIGHT_GRAY);
 		label_2.setFont(new Font("Dialog", Font.BOLD, 17));
-		label_2.setBounds(56, 28, 460, 22);
+		label_2.setBounds(20, 28, 460, 22);
 		contentPane.add(label_2);
 		
 		for(int i=0;i<listSize*2;i+=2) {
@@ -91,13 +91,6 @@ public class Frame3 extends JFrame {
 		panel_1_2.add(label_3_1);
 		
 		
-		
-		
-//		Label label_1_1_1 = new Label("Plhrofories Pthshs");
-//		label_1_1_1.setForeground(Color.RED);
-//		label_1_1_1.setFont(new Font("Montestratt", Font.PLAIN, 11));
-//		label_1_1_1.setBounds(35, 50, 94, 22);
-//		panel_1_2.add(label_1_1_1);
 		
 		Label label_3_1_1 = new Label("Timh paketou:");
 		label_3_1_1.setForeground(Color.DARK_GRAY);

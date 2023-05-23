@@ -1,27 +1,19 @@
 	package travelpack;
 
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -32,7 +24,7 @@ public class FramePlhrwmhs extends JFrame {
 	private JPanel contentPane;
 	private JLabel stoixeiaPlhromhs;
 	private JLabel OnomaKsenodoxeiou;
-	private JTextField txtArithmosKartas;
+	private JFormattedTextField txtArithmosKartas;
 	private JTextField txtOnomaKatoxou;
 	private JTextField txtHmeromhniaLhkshs;
 	private JTextField txtCvv;
@@ -77,7 +69,19 @@ public class FramePlhrwmhs extends JFrame {
 		flightPanel.setBounds(5, 220, 250, 180);
 		contentPane.add(flightPanel);
 		
-		txtArithmosKartas = new JTextField();
+		
+		txtArithmosKartas = new JFormattedTextField();
+		txtArithmosKartas.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if (!((c >= '0') && (c <= '9') ||
+		           (c == KeyEvent.VK_BACK_SPACE) ||
+		           (c == KeyEvent.VK_DELETE))) {
+		          getToolkit().beep();
+		          e.consume();
+		        }
+		      }
+		    });
 		txtArithmosKartas.setHorizontalAlignment(SwingConstants.CENTER);
 		txtArithmosKartas.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		txtArithmosKartas.setText("Arithmos Kartas");
@@ -95,6 +99,20 @@ public class FramePlhrwmhs extends JFrame {
 		
 		txtHmeromhniaLhkshs = new JTextField();
 		txtHmeromhniaLhkshs.setText("Hmeromhnia Lhkshs*");
+		txtHmeromhniaLhkshs.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if (!((c >= '0') && (c <= '9') ||
+		           (c == KeyEvent.VK_BACK_SPACE) ||
+		           (c == KeyEvent.VK_SLASH)||
+		           (c == KeyEvent.VK_DELETE))||
+		        	(txtCvv.getText().length()>=5)) {
+		          getToolkit().beep();
+		          JOptionPane.showMessageDialog(contentPane, e);
+		          e.consume();
+		        }
+		      }
+		    });
 		txtHmeromhniaLhkshs.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		txtHmeromhniaLhkshs.setHorizontalAlignment(SwingConstants.CENTER);
 		txtHmeromhniaLhkshs.setColumns(10);
@@ -103,6 +121,26 @@ public class FramePlhrwmhs extends JFrame {
 		
 		txtCvv = new JTextField();
 		txtCvv.setText("CVV*");
+		txtCvv.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if (!((c >= '0') && (c <= '9') ||
+		           (c == KeyEvent.VK_BACK_SPACE) ||
+		           (c == KeyEvent.VK_DELETE))||
+		        	(txtCvv.getText().length()>=3)) {
+		          getToolkit().beep();
+		          e.consume();
+		        }
+		      }
+		    });
+		txtCvv.addKeyListener(new java.awt.event.KeyAdapter() {
+		    public void keyTyped(java.awt.event.KeyEvent evt) {
+		        if(txtCvv.getText().length()>=3) {
+		            getToolkit().beep();
+		            evt.consume();
+		         }
+		     }
+		});
 		txtCvv.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		txtCvv.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCvv.setColumns(10);
@@ -114,24 +152,24 @@ public class FramePlhrwmhs extends JFrame {
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Poppins", Font.BOLD, 16));
 
-		btnNewButton.setBounds(15, 110, 200, 35);
+		btnNewButton.setBounds(10, 130, 225, 35);
 		paymentPanel.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if(CheckPayment.checkCardNumber(txtArithmosKartas.getText())) {
 				Booking.bookRoom(p.getHotel(), uo);
+				FrameOloklhrwsh guiOloklhrwshs  = new FrameOloklhrwsh();
+				guiOloklhrwshs.setVisible(true);
+				dispose();
+				}
 			}
 		});
 		
 		
 
-		btnNewButton.setBounds(238, 365, 240, 35);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				FrameOloklhrwsh guiOloklhrwshs  = new FrameOloklhrwsh();
-				guiOloklhrwshs.setVisible(true);
-			}
-		});
-		contentPane.add(btnNewButton);
+		
+		
 
 	}
 }

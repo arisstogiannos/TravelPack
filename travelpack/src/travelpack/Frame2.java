@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -18,8 +17,12 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class Frame2 extends JFrame {
 
@@ -27,27 +30,6 @@ public class Frame2 extends JFrame {
 	private JTextField txtApo;
 	private JTextField txtEws;
 	
-	
-
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Frame2 frame = new Frame2();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-	//}
-
-	/**
-	 * Create the frame.
-	 */
 	public Frame2(UserOptions uo) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 462, 543);
@@ -97,7 +79,7 @@ public class Frame2 extends JFrame {
 		radioYes.setBounds(61, 92, 50, 22);
 		panel.add(radioYes);
 		
-		JRadioButton radioNo = new JRadioButton("No");
+		JRadioButton radioNo = new JRadioButton("No",true);
 		radioNo.setFont(new Font("Poppins", Font.PLAIN, 12));
 		radioNo.setBackground(Color.LIGHT_GRAY);
 		radioNo.setBounds(143, 92, 50, 22);
@@ -149,25 +131,24 @@ public class Frame2 extends JFrame {
 		label_1.setBounds(62, 10, 125, 22);
 		panel_1.add(label_1);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(60, 90, 30, 20);
-		panel_1.add(spinner);
-		
 		JComboBox cb = new JComboBox();
+		cb.addItem("Monoklino");
 		cb.setForeground(Color.LIGHT_GRAY);
 		cb.setBackground(Color.DARK_GRAY);
 		cb.setBounds(60, 140, 112, 22);
-	;
-		JButton numSub = new JButton("Submit");
-		numSub.setBackground(new Color(0, 128, 192));
-		numSub.setForeground(Color.DARK_GRAY);
-		numSub.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				cb.removeAllItems();
+		
+		SpinnerModel value = new SpinnerNumberModel(1, 1, 4, 1);
+		JSpinner spinner = new JSpinner(value);
+		spinner.setBounds(90, 90, 30, 20);
+		spinner.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+            	cb.removeAllItems();
 				int val = (Integer)spinner.getValue();
-				if(val >0) 
-					cb.addItem("Monoklino");
 				
+				if(val>0) 
+					cb.addItem("Monoklino");
+
 				if(val > 1)
 					cb.addItem("Diklino");
 				
@@ -175,14 +156,9 @@ public class Frame2 extends JFrame {
 					cb.addItem("Triklino");
 				
 				if(val > 3)
-					cb.addItem("Tetraklino");
-				
-				
-			}
-			}
-			);
-		panel_1.add(numSub);
-		numSub.setBounds(100, 90, 80, 25);
+					cb.addItem("Tetraklino");            }
+        });
+		panel_1.add(spinner);
 		
 		
 		Label label_2_1_1 = new Label("Arithmos Atomwn");
@@ -203,21 +179,6 @@ public class Frame2 extends JFrame {
 		
 		panel_1.add(cb);
 		
-//		JCheckBox chckbxNewCheckBox = new JCheckBox("Monoklino");
-//		chckbxNewCheckBox.setBounds(12, 120, 90, 23);
-//		panel_1.add(chckbxNewCheckBox);
-//		
-//		JCheckBox chckbxDiklino = new JCheckBox("Diklino");
-//		chckbxDiklino.setBounds(12, 146, 90, 23);
-//		panel_1.add(chckbxDiklino);
-//		
-//		JCheckBox chckbxTriklino = new JCheckBox("Triklino");
-//		chckbxTriklino.setBounds(156, 120, 90, 23);
-//		panel_1.add(chckbxTriklino);
-//		
-//		JCheckBox chckbxTetraklino = new JCheckBox("Tetraklino");
-//		chckbxTetraklino.setBounds(156, 146, 90, 23);
-//		panel_1.add(chckbxTetraklino);
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setBackground(Color.DARK_GRAY);

@@ -8,7 +8,7 @@ Hotel am Fluss,Berlin,190,7
 El Palacio Real,Madrid,280, 8
 La Casa del Sol,Madrid,190, 9
 Hotel Reina,Madrid,220, 10
-Il Palazzo Imperiale,Rome,300, 11
+Il Palazzo Imperiale, Rome,300, 11
 La Villa Romana, Rome,290, 12
 L'Oasi Eterna, Rome,200, 13
 Hotel Bellavista, Rome, 180, 14

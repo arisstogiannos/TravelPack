@@ -4,15 +4,21 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -21,34 +27,14 @@ import javax.swing.border.EmptyBorder;
 public class Frame1 extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField DestinationTextField;
 	private JTextField DepCityTextField;
 	private JTextField DaysTextField;
 	private JTextField MonthTextField;
+	private JComboBox destination;
 
 	private JLabel lblNewLabel_1;
 
-//	private UserOptions uo;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Frame1 frame = new Frame1();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Frame1() {
 		
 		setTitle("TravelPack");
@@ -62,14 +48,29 @@ public class Frame1 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		DestinationTextField = new JTextField("Anazhthsh Proorismou");
-		DestinationTextField.setHorizontalAlignment(SwingConstants.CENTER);
-		DestinationTextField.setForeground(Color.BLACK);
-		DestinationTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
-		DestinationTextField.setBounds(62, 168, 179, 34);
-		contentPane.add(DestinationTextField);
-		DestinationTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
-		DestinationTextField.setColumns(10);
+		destination = new JComboBox();
+		destination.addItem("Proorismos");
+		destination.setFont(new Font("Poppins", Font.PLAIN, 15));
+		destination.setBounds(62, 168, 179, 34);
+		contentPane.add(destination);
+		destination.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+		 try {
+		      File f = new File("hotels.txt");
+		      Scanner myReader = new Scanner(f);
+		      while (myReader.hasNextLine()) {
+		        String data = myReader.nextLine();
+		        String[] city =data.split(",", 7);
+		        if(!city[1].trim().equals(destination.getItemAt(destination.getItemCount()-1)))
+		        	destination.addItem(city[1].trim());
+		        
+		      }
+		      myReader.close();
+		    } catch (FileNotFoundException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
+		
+
 		
 		DepCityTextField = new JTextField("Anazhthsh Afethrias");
 		DepCityTextField.setHorizontalAlignment(SwingConstants.CENTER);
@@ -77,9 +78,33 @@ public class Frame1 extends JFrame {
 		DepCityTextField.setBounds(62, 248, 179, 34);
 		DepCityTextField.setColumns(10);
 		DepCityTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+		DepCityTextField.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+            	DepCityTextField.setText("");
+            }
+        });
 		contentPane.add(DepCityTextField);
 		
 		DaysTextField = new JTextField("Epilogh Dianuktereusewn");
+		DaysTextField.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if (!((c >= '0') && (c <= '9') ||
+		           (c == KeyEvent.VK_BACK_SPACE) ||
+		           (c == KeyEvent.VK_DELETE)) ||
+		        	(DaysTextField.getText().length()>=2)) {
+		           getToolkit().beep();
+		          e.consume();
+		        }
+		      }
+		    });
+		DaysTextField.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+            	DaysTextField.setText("");
+            }
+        });
 		DaysTextField.setHorizontalAlignment(SwingConstants.CENTER);
 		DaysTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
 		DaysTextField.setBounds(333, 248, 179, 34);
@@ -89,12 +114,30 @@ public class Frame1 extends JFrame {
 		
 		
 		JTextField MonthTextField = new JTextField("Hmeromhnia(dd/mm/yyyy)");
+		MonthTextField.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if (!((c >= '0') && (c <= '9') ||
+		           (c == KeyEvent.VK_BACK_SPACE) ||
+		           (c == KeyEvent.VK_SLASH)||
+		           (c == KeyEvent.VK_DELETE))) {
+		          getToolkit().beep();
+		          e.consume();
+		        }
+		      }
+		    });
+		MonthTextField.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+            	MonthTextField.setText("");
+            }
+        });
 		MonthTextField.setHorizontalAlignment(SwingConstants.CENTER);
 		MonthTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
 		MonthTextField.setBounds(333, 168, 179, 34);
 		MonthTextField.setColumns(10);
 		MonthTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
-		
+		MonthTextField.setToolTipText("Format should be dd/mm/yyyy (e.g 12/3/2023)");
 		contentPane.add(MonthTextField);
 		
 		
@@ -107,24 +150,35 @@ public class Frame1 extends JFrame {
 		
 		JButton btnNewButton = new JButton("Anazhthsh");
 		btnNewButton.setBackground(new Color(0, 128, 192));
+		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBounds(129, 328, 309, 40);
 		btnNewButton.setFont(new Font("Poppins", Font.PLAIN, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				boolean flag =true;
 				UserOptions uo = new UserOptions();
 				
 				uo.setDepCity(DepCityTextField.getText());
 				
-				uo.setDestination(DestinationTextField.getText());
-		
+				if(destination.getItemAt(destination.getSelectedIndex()).equals("Proorismos")) {
+					JOptionPane.showMessageDialog(contentPane, "Παρακαλώ επιλέξτε προορισμό");
+					flag =false;
+				}	
+				
+				
+				uo.setDestination((String) destination.getItemAt(destination.getSelectedIndex()));
+				
 				uo.setDays(Integer.parseInt(DaysTextField.getText()));
+
+				
+				uo.setDate(MonthTextField.getText());
 				
 				
-					uo.setDate(MonthTextField.getText());
-			
-				Frame2 gui2=new Frame2(uo);
-				gui2.setVisible(true);
-				dispose();
+				if (flag) {
+					Frame2 gui2 = new Frame2(uo);
+					gui2.setVisible(true);
+					dispose();
+				}
 				
 			}
 		});

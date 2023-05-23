@@ -66,9 +66,12 @@ public class Hotel {
 						if(booking.getHotelName().equals(this.name)&& booking.getCode()==r.getCode()) {
 							
 							available=r.getAvailable();
-							for(int z=booking.getDay();z<=booking.getDay()+booking.getDays();z++) 
-								available[booking.getMonth()-1][z]=false;
-							
+							for(int z=booking.getDay()-1;z<=booking.getDay()-1+booking.getDays();z++) {
+								if(z-31>=0)
+									available[booking.getMonth()%12][z%31]=false;
+								else 
+									available[booking.getMonth()-1][z]=false; 
+							}
 							r.setAvailable(available);
 						}
 					}
@@ -89,13 +92,25 @@ public class Hotel {
 		 for(Room room:rooms) {
 			 if(uo.getRoomType().equals(room.getType())&&room.getCapacity()==uo.getCapacityAsInt()) {
 				 available = room.getAvailable();
-				 for(int i=date[0];i<date[0]+uo.getDays();i++) {
-					 if(!available[date[1]-1][i]) {
-						 booked = true;	
-						 break;
-					 }else {
-						 booked=false;
-					 }
+				 for(int i=date[0]-1;i<date[0]+uo.getDays()-1;i++) {
+					 
+						 if(i-31>=0){
+							 if(!available[date[1]%12][i%31]) {
+								 booked = true;	
+								 break;
+							 }else {
+								 booked=false;
+							 }
+						 }else {
+						 
+							 if(!available[date[1]-1][i]) {
+								 booked = true;	
+								 break;
+							 }else {
+								 booked=false;
+							 }
+						 }
+					 
 				 }
 				 if(!booked) return room;
 			 }
