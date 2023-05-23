@@ -118,7 +118,7 @@ public class FramePlhrwmhs extends JFrame {
 		paymentPanel.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CompleteBooking.bookRoom(p.getHotel(), uo);
+				Booking.bookRoom(p.getHotel(), uo);
 			}
 		});
 		

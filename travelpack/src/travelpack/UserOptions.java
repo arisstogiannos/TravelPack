@@ -92,8 +92,8 @@ public class UserOptions {
 	}
 	
 	public int[] getDate() {
-		int[] dates= {1,1,1,1,1};
-		String[] strArr= date.split("/",4);
+		int[] dates= {1,1,1};
+		String[] strArr= date.split("/",3);
 		for(int i=0;i<strArr.length;i++) {
 			dates[i]=Integer.parseInt(strArr[i]);
 		}

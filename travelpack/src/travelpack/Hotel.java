@@ -1,15 +1,18 @@
 package travelpack;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Hotel {
-	
 	private String name;
 	private String city;
 	private int price;
 	private int code;
 	ArrayList<Room> rooms;
 	private Room availableRoom;
+	ArrayList<Booking> bookings; 
 	
 	
 	public String getName() {
@@ -42,7 +45,9 @@ public class Hotel {
 		this.city = city;
 		this.price = price;
 		this.code = code;
+		bookings=Booking.createBookings();
 		rooms = createRoomList();
+		
 	}
 	
 	
@@ -50,11 +55,23 @@ public class Hotel {
 		 ArrayList<Room> rooms = new ArrayList<>();
 		String[] type = {"Simple","Suite"};
 		int[] capacity= {1,2,3,4};
+		boolean[][] available;
 		
 		for (int j = 0; j < type.length; j++) {
 			for (int i = 0; i < capacity.length; i++) {
 				for (int k = 0; k < 3; k++) {
 					Room r = new Room(type[j], capacity[i], (j+1)*100 + (i+1)*10 +k);
+					
+					for(Booking booking:bookings) {
+						if(booking.getHotelName().equals(this.name)&& booking.getCode()==r.getCode()) {
+							
+							available=r.getAvailable();
+							for(int z=booking.getDay();z<=booking.getDay()+booking.getDays();z++) 
+								available[booking.getMonth()-1][z]=false;
+							
+							r.setAvailable(available);
+						}
+					}
 					rooms.add(r);
 				}
 			}
@@ -64,28 +81,9 @@ public class Hotel {
 		
 		
 	}
-	 public boolean isAvailable(UserOptions uo) {
-		 boolean flag=false;
-		 boolean[][] available;
-		 int date[]=uo.getDate();
-		 for(Room room:rooms) {
-			 if(uo.getRoomType().equals(room.getType())&&room.getCapacity()==uo.getCapacityAsInt()) {
-				 available = room.getAvailable();
-				 for(int i=date[0];i<date[0]+uo.getDays();i++) {
-					 if(!available[date[1]-1][i]) {
-						 flag = false;	
-					 }else {
-						 flag = true;
-						 break;
-					 }
-				 }
-			 }
-		 }
-		 return flag;
-	 }
 	 
 	 public Room availableRoom(UserOptions uo) {
-		 boolean flag=true;
+		 boolean booked=false;
 		 boolean[][] available;
 		 int date[]=uo.getDate();
 		 for(Room room:rooms) {
@@ -93,25 +91,63 @@ public class Hotel {
 				 available = room.getAvailable();
 				 for(int i=date[0];i<date[0]+uo.getDays();i++) {
 					 if(!available[date[1]-1][i]) {
-						 flag = false;	
+						 booked = true;	
 						 break;
+					 }else {
+						 booked=false;
 					 }
 				 }
-				 if(flag) return room;
+				 if(!booked) return room;
 			 }
 		 }
 		 return null;
 	 }
 	 
+	 
+	 public boolean isAvailable(UserOptions uo) {
+//		 boolean flag=false;
+//		 boolean[][] available;
+//		 int date[]=uo.getDate();
+		 
+		 if(availableRoom(uo)==null) {
+			 return false;
+		 }else {
+			 return true;
+		 }
+		 
+//		 for(Room room:rooms) {
+//			
+////			 if(uo.getRoomType().equals(room.getType())&&room.getCapacity()==uo.getCapacityAsInt()) {
+////				 available = room.getAvailable();
+////				 for(int i=date[0];i<date[0]+uo.getDays();i++) {
+////					 if(!available[date[1]-1][i]) {
+////						 flag = false;	
+////					 }else {
+////						 flag = true;
+////						 break;
+////					 }
+////				 }
+////			 }
+//		 }
+//		 return flag;
+	 }
+	 
+	
+	 
 	 public void calculatePrice(UserOptions uo) {
 		
-		 if(uo.getRoomType().equals("suite")) 
+		 if(uo.getRoomType().equals("Suite")) 
 			 price=price*2;
 		 
 		 price=price*uo.getPplNum();
 		 
 		
 	 }
+	 
+
+	 
+	 
+	 
 }
 
 
