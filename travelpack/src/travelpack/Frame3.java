@@ -36,8 +36,9 @@ public class Frame3 extends JFrame {
 		ArrayList<JPanel> panels= new ArrayList<>();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 556, listSize*200);
+		setBounds(100, 100, 556, listSize*180);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -45,7 +46,7 @@ public class Frame3 extends JFrame {
 
 		Label label_2 = new Label("Diathesima Ksenodoxeia - Apotelesmata "+listSize+" apo "+listSize+" sunolika");
 		label_2.setAlignment(Label.CENTER);
-		label_2.setForeground(new Color(0, 0, 0));
+		label_2.setForeground(Color.LIGHT_GRAY);
 		label_2.setFont(new Font("Dialog", Font.BOLD, 17));
 		label_2.setBounds(56, 28, 460, 22);
 		contentPane.add(label_2);
@@ -67,6 +68,7 @@ public class Frame3 extends JFrame {
 		JPanel panel_1_1_1 = new JPanel();
 		panel_1_1_1.setLayout(null);
 		panel_1_1_1.setForeground(Color.BLACK);
+		panel_1_1_1.setBackground(Color.LIGHT_GRAY);
 		panel_1_1_1.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
 		panel_1_1_1.setBounds(10, y, 120, 118);
 		panels.add(panel_1_1_1);
@@ -76,13 +78,14 @@ public class Frame3 extends JFrame {
 	
 		JPanel panel_1_2 = new JPanel();
 		panel_1_2.setLayout(null);
+		panel_1_2.setBackground(Color.LIGHT_GRAY);
 		panel_1_2.setForeground(Color.BLACK);
 		panel_1_2.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
 		panel_1_2.setBounds(136, y, 357, 118);
 		panels.add(panel_1_2);
 		
 		Label label_3_1 = new Label(packetList.get(i).getHotel().getName());
-		label_3_1.setForeground(Color.BLACK);
+		label_3_1.setForeground(Color.DARK_GRAY);
 		label_3_1.setFont(new Font("Poppins", Font.PLAIN, 15));
 		label_3_1.setBounds(10, 10, 230, 22);
 		panel_1_2.add(label_3_1);
@@ -97,19 +100,19 @@ public class Frame3 extends JFrame {
 //		panel_1_2.add(label_1_1_1);
 		
 		Label label_3_1_1 = new Label("Timh paketou:");
-		label_3_1_1.setForeground(Color.BLACK);
+		label_3_1_1.setForeground(Color.DARK_GRAY);
 		label_3_1_1.setFont(new Font("Dialog", Font.PLAIN, 15));
 		label_3_1_1.setBounds(240, 10, 100, 20);
 		panel_1_2.add(label_3_1_1);
 		
 		Label timh = new Label(packetList.get(i).getTotalprice()+"$");
-		timh.setForeground(Color.BLACK);
+		timh.setForeground(Color.DARK_GRAY);
 		timh.setFont(new Font("Dialog", Font.PLAIN, 15));
 		timh.setBounds(290, 30, 50, 20);
 		panel_1_2.add(timh);
 		
 		JButton btn1 = new JButton("Kante Krathsh");
-		btn1.setForeground(Color.WHITE);
+		btn1.setForeground(Color.LIGHT_GRAY);
 		btn1.setBackground(Color.DARK_GRAY);
 		btn1.setFont(new Font("Montestratt", Font.BOLD , 12));
 		btn1.setBounds(226, 66, 121, 41);

@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -53,6 +56,7 @@ public class Frame1 extends JFrame {
 		setBounds(100, 100, 587, 434);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(Color.DARK_GRAY);
 		
 
 		setContentPane(contentPane);
@@ -83,7 +87,8 @@ public class Frame1 extends JFrame {
 		DaysTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		contentPane.add(DaysTextField);
 		
-		MonthTextField = new JTextField("Epilogh Mhna");
+		
+		JTextField MonthTextField = new JTextField("Hmeromhnia(dd/mm/yyyy)");
 		MonthTextField.setHorizontalAlignment(SwingConstants.CENTER);
 		MonthTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
 		MonthTextField.setBounds(333, 168, 179, 34);
@@ -101,18 +106,22 @@ public class Frame1 extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Anazhthsh");
-		btnNewButton.setBackground(Color.RED);
+		btnNewButton.setBackground(new Color(0, 128, 192));
 		btnNewButton.setBounds(129, 328, 309, 40);
 		btnNewButton.setFont(new Font("Poppins", Font.PLAIN, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UserOptions uo = new UserOptions();
+				
 				uo.setDepCity(DepCityTextField.getText());
 				
 				uo.setDestination(DestinationTextField.getText());
 		
 				uo.setDays(Integer.parseInt(DaysTextField.getText()));
-				uo.setDate(MonthTextField.getText());
+				
+				
+					uo.setDate(MonthTextField.getText());
+			
 				Frame2 gui2=new Frame2(uo);
 				gui2.setVisible(true);
 				dispose();

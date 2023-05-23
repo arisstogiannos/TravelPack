@@ -1,4 +1,4 @@
-package travelpack;
+	package travelpack;
 
 
 import java.awt.EventQueue;
@@ -51,16 +51,16 @@ public class FramePlhrwmhs extends JFrame {
 
 		OnomaKsenodoxeiou = new JLabel();
 		OnomaKsenodoxeiou.setHorizontalAlignment(SwingConstants.CENTER);
-		OnomaKsenodoxeiou.setFont(new Font("Wide Latin", Font.PLAIN, 16));
+		OnomaKsenodoxeiou.setFont(new Font("Wide Latin", Font.PLAIN, 13));
 		OnomaKsenodoxeiou.setText(p.getHotel().getName());
-		OnomaKsenodoxeiou.setBounds(5, 10, 250, 48);
+		OnomaKsenodoxeiou.setBounds(5, 10, 390, 48);
 		contentPane.add(OnomaKsenodoxeiou);
 		
 		stoixeiaPlhromhs = new JLabel();
 		stoixeiaPlhromhs.setHorizontalAlignment(SwingConstants.CENTER);
-		stoixeiaPlhromhs.setFont(new Font("Wide Latin", Font.PLAIN, 16));
+		stoixeiaPlhromhs.setFont(new Font("Poppins", Font.BOLD, 17));
 		stoixeiaPlhromhs.setText("Stoixeia Plhromhs");
-		stoixeiaPlhromhs.setBounds(210, 170, 317, 38);
+		stoixeiaPlhromhs.setBounds(210, 180, 317, 38);
 		contentPane.add(stoixeiaPlhromhs);
 		
 		JPanel paymentPanel = new JPanel();
@@ -112,9 +112,9 @@ public class FramePlhrwmhs extends JFrame {
 		JButton btnNewButton = new JButton("Oloklhrwsh Krathshs");
 		btnNewButton.setBackground(Color.DARK_GRAY);
 		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 17));
+		btnNewButton.setFont(new Font("Poppins", Font.BOLD, 16));
 
-		btnNewButton.setBounds(10, 130, 225, 35);
+		btnNewButton.setBounds(15, 110, 200, 35);
 		paymentPanel.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
