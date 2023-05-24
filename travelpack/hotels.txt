@@ -1,36 +1,36 @@
-Le Château Royale, Paris,120,1
-La Belle Epoque Hotel, Paris,100,2
-Hôtel Lumière, Paris,130,3
-Das Grandhotel,Berlin,220,4
-Der Kronenplatz,Berlin,150,5
-Das Grüne Oase,Berlin,180,6
-Hotel am Fluss,Berlin,190,7
-El Palacio Real,Madrid,280, 8
-La Casa del Sol,Madrid,190, 9
-Hotel Reina,Madrid,220, 10
-Il Palazzo Imperiale, Rome,300, 11
-La Villa Romana, Rome,290, 12
-L'Oasi Eterna, Rome,200, 13
-Hotel Bellavista, Rome, 180, 14
-The Acropolis View Hotel, Athens, 230, 15
-Athenian Palace Hotel, Athens, 190, 16
-Olive Grove Resort, Athens, 210, 17
-Hotel Parthenon, Athens, 180, 18
-Das Kronenschloss, Vienna, 260, 19
-Der Himmelsgarten, Vienna, 220, 20
-Hotel Amadeus, Vienna, 180, 21
-The Emerald Manor, Dublin, 280, 22
-The Dubliner's Rest, Dublin, 190, 23
-The Riverside Hotel, Dublin, 220, 24
-The Cloverleaf Inn, Dublin, 200, 25
-U Zlatého Beránka, Prague, 250, 26
-Pod Lipami Hotel, Prague, 180, 27
-Hotel Vltava, Prague, 200, 28
-Pałac Wiejski, Warsaw, 260, 29
-Hotel Królewski, Warsaw, 190, 30
-Hotel Polonia, Warsaw, 220, 31
-Hotel Warszawa, Warsaw, 200, 32
-O Palácio Real, Lisbon, 300, 33
-A Casa dos Ventos, Lisbon, 250, 34
-O Jardim Encantado, Lisbon, 200, 35
-Hotel Miradouro, Lisbon, 180, 36
+    La Belle Epoque Hotel, Paris, 120, 1
+    Das Grüne Oase, Berlin, 100, 2
+    Hotel am Fluss, Berlin, 130, 3
+    La Casa del Sol, Madrid, 110, 4
+    Hotel Reina, Madrid, 140, 5
+    L'Oasi Eterna, Rome, 150, 6
+    Hotel Bellavista, Rome, 90, 7
+    Athenian Palace Hotel, Athens, 120, 8
+    Olive Grove Resort, Athens, 100, 9
+    Hotel Parthenon, Athens, 110, 10
+    Hotel Amadeus, Vienna, 130, 11
+    The Dubliner's Rest, Dublin, 100, 12
+    The Riverside Hotel, Dublin, 140, 13
+    The Cloverleaf Inn, Dublin, 120, 14
+    Pod Lipami Hotel, Prague, 100, 15
+    Hotel Vltava, Prague, 90, 16
+    Hotel Królewski, Warsaw, 130, 17
+    Hotel Warszawa, Warsaw, 140, 18
+    O Jardim Encantado, Lisbon, 130, 19
+    Hotel Miradouro, Lisbon, 100, 20
+    Palace Grand Hotel, Budapest, 80, 21
+    Majestic Plaza Hotel, Prague, 110, 22
+    Royal Oasis Hotel, Dublin, 100, 23
+    Grand Excelsior Hotel, Rome, 130, 24
+    Golden Crown Hotel, Vienna, 120, 25
+    Le Château Royale, Paris, 90, 26
+    Hôtel Lumière, Paris, 110, 27
+    Das Grandhotel, Berlin, 80, 28
+    Der Kronenplatz, Berlin, 100, 29
+    Hotel am Fluss, Berlin, 120, 30
+    El Palacio Real, Madrid, 90, 31
+    La Casa del Sol, Madrid, 110, 32
+    Hotel Reina, Madrid, 80, 33
+    Il Palazzo Imperiale, Rome, 130, 34
+    La Villa Romana, Rome, 90, 35
+    L'Oasi Eterna, Rome, 100, 36
