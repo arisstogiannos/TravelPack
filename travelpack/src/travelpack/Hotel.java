@@ -120,31 +120,14 @@ public class Hotel {
 	 
 	 
 	 public boolean isAvailable(UserOptions uo) {
-//		 boolean flag=false;
-//		 boolean[][] available;
-//		 int date[]=uo.getDate();
-		 
+
 		 if(availableRoom(uo)==null) {
 			 return false;
 		 }else {
 			 return true;
 		 }
 		 
-//		 for(Room room:rooms) {
-//			
-////			 if(uo.getRoomType().equals(room.getType())&&room.getCapacity()==uo.getCapacityAsInt()) {
-////				 available = room.getAvailable();
-////				 for(int i=date[0];i<date[0]+uo.getDays();i++) {
-////					 if(!available[date[1]-1][i]) {
-////						 flag = false;	
-////					 }else {
-////						 flag = true;
-////						 break;
-////					 }
-////				 }
-////			 }
-//		 }
-//		 return flag;
+
 	 }
 	 
 	
@@ -155,7 +138,7 @@ public class Hotel {
 			 price=price*2;
 		 
 		 price=price*uo.getPplNum();
-		 
+		 price=price*uo.getDays();		 
 		
 	 }
 	 

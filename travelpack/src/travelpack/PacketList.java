@@ -13,7 +13,7 @@ public class PacketList {
 		
 		ArrayList<Packet> packetList = new ArrayList<>();
 		
-		Flight flight = new Flight(uo.getDepCity(),uo.getDestination(),uo.getFlightType(),uo.isBaggage(),uo.getDate());
+		Flight flight = new Flight(uo.getDepCity(),uo.getDestination(),uo.getFlightType(),uo.isBaggage(),uo.getDate(),uo.getTime());
 
 		for (Hotel hotel :hotels) {
 			if(uo.getDestination().trim().toUpperCase().equals(hotel.getCity().toUpperCase())&&hotel.isAvailable(uo)) {

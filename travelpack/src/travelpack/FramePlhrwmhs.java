@@ -76,7 +76,8 @@ public class FramePlhrwmhs extends JFrame {
 		        char c = e.getKeyChar();
 		        if (!((c >= '0') && (c <= '9') ||
 		           (c == KeyEvent.VK_BACK_SPACE) ||
-		           (c == KeyEvent.VK_DELETE))) {
+		           (c == KeyEvent.VK_DELETE)) ||
+		        	(txtArithmosKartas.getText().length()>=16)) {
 		          getToolkit().beep();
 		          e.consume();
 		        }
@@ -90,6 +91,18 @@ public class FramePlhrwmhs extends JFrame {
 		txtArithmosKartas.setColumns(10);
 		
 		txtOnomaKatoxou = new JTextField();
+		txtOnomaKatoxou.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if (!((c >= 'A') && (c <= 'Z') ||
+		        	((c >= 'a') && (c <= 'z') ||
+		           (c == KeyEvent.VK_BACK_SPACE) ||
+		           (c == KeyEvent.VK_DELETE)))) {
+		          getToolkit().beep();
+		          e.consume();
+		        }
+		      }
+		    });
 		txtOnomaKatoxou.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		txtOnomaKatoxou.setText("Onoma Katoxou*");
 		txtOnomaKatoxou.setHorizontalAlignment(SwingConstants.CENTER);

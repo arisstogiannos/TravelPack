@@ -51,7 +51,7 @@ public class Frame1 extends JFrame {
 		destination = new JComboBox();
 		destination.addItem("Proorismos");
 		destination.setFont(new Font("Poppins", Font.PLAIN, 15));
-		destination.setBounds(62, 168, 179, 34);
+		destination.setBounds(62, 168, 189, 34);
 		contentPane.add(destination);
 		destination.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		 try {
@@ -72,10 +72,22 @@ public class Frame1 extends JFrame {
 		
 
 		
-		DepCityTextField = new JTextField("Anazhthsh Afethrias");
+		DepCityTextField = new JTextField("Αφετηρία");
+		DepCityTextField.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if (!((c >= 'A') && (c <= 'Z') ||
+		        	((c >= 'a') && (c <= 'z') ||
+		           (c == KeyEvent.VK_BACK_SPACE) ||
+		           (c == KeyEvent.VK_DELETE)))) {
+		          getToolkit().beep();
+		          e.consume();
+		        }
+		      }
+		    });
 		DepCityTextField.setHorizontalAlignment(SwingConstants.CENTER);
 		DepCityTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
-		DepCityTextField.setBounds(62, 248, 179, 34);
+		DepCityTextField.setBounds(62, 248, 189, 34);
 		DepCityTextField.setColumns(10);
 		DepCityTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		DepCityTextField.addMouseListener(new MouseAdapter(){
@@ -86,7 +98,7 @@ public class Frame1 extends JFrame {
         });
 		contentPane.add(DepCityTextField);
 		
-		DaysTextField = new JTextField("Epilogh Dianuktereusewn");
+		DaysTextField = new JTextField("Επιλογή διανυκτερεύσεων");
 		DaysTextField.addKeyListener(new KeyAdapter() {
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
@@ -107,7 +119,7 @@ public class Frame1 extends JFrame {
         });
 		DaysTextField.setHorizontalAlignment(SwingConstants.CENTER);
 		DaysTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
-		DaysTextField.setBounds(333, 248, 179, 34);
+		DaysTextField.setBounds(333, 248, 189, 34);
 		DaysTextField.setColumns(10);
 		DaysTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		contentPane.add(DaysTextField);
@@ -134,7 +146,7 @@ public class Frame1 extends JFrame {
         });
 		MonthTextField.setHorizontalAlignment(SwingConstants.CENTER);
 		MonthTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
-		MonthTextField.setBounds(333, 168, 179, 34);
+		MonthTextField.setBounds(333, 168, 189, 34);
 		MonthTextField.setColumns(10);
 		MonthTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		MonthTextField.setToolTipText("Format should be dd/mm/yyyy (e.g 12/3/2023)");
@@ -157,27 +169,47 @@ public class Frame1 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				boolean flag =true;
 				UserOptions uo = new UserOptions();
+				String errMsg ="";
 				
-				uo.setDepCity(DepCityTextField.getText());
+				if(DepCityTextField.getText().isBlank() || DepCityTextField.getText().equals("Αφετηρία")) {
+					errMsg+="Αφετηρία \n";
+					flag = false;
+				}else {
+					uo.setDepCity(DepCityTextField.getText());
+				}
 				
 				if(destination.getItemAt(destination.getSelectedIndex()).equals("Proorismos")) {
-					JOptionPane.showMessageDialog(contentPane, "Παρακαλώ επιλέξτε προορισμό");
+					errMsg+="Προορισμός \n";
 					flag =false;
-				}	
+				}else {
+					uo.setDestination((String) destination.getItemAt(destination.getSelectedIndex()));
+				}
 				
 				
-				uo.setDestination((String) destination.getItemAt(destination.getSelectedIndex()));
+				if(DaysTextField.getText().isBlank() || DaysTextField.getText().equals("Επιλογή διανυκτερεύσεων")) {
+					errMsg+="Διανυκτερεύσεις \n";
+					flag = false;
+				}else {
+					uo.setDays(Integer.parseInt(DaysTextField.getText()));
+				}
 				
-				uo.setDays(Integer.parseInt(DaysTextField.getText()));
-
-				
-				uo.setDate(MonthTextField.getText());
+				if(MonthTextField.getText().isBlank() || MonthTextField.getText().equals("Hmeromhnia(dd/mm/yyyy)")) {
+					errMsg+="Ημερομηνία \n";
+					flag = false;
+				}else {
+					uo.setDate(MonthTextField.getText());
+				}
+					
+					
 				
 				
 				if (flag) {
 					Frame2 gui2 = new Frame2(uo);
 					gui2.setVisible(true);
 					dispose();
+				}else {
+					JOptionPane.showMessageDialog(contentPane, "Παρακαλώ συμπληρώστε τα παρακάτω πεδία:\n"+errMsg);
+
 				}
 				
 			}

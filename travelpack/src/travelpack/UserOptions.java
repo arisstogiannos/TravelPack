@@ -9,7 +9,7 @@ public class UserOptions {
 	private boolean baggage = false;
 	private int[] departureTime;
 	private int days;
-	private String time;
+	private int[] time;
 	private String date;
 	private String roomCapacity;
 	private int capacityAsInt;
@@ -32,10 +32,10 @@ public class UserOptions {
 	public void setRoomCapacity(String roomCapacity) {
 		this.roomCapacity = roomCapacity;
 	}
-	public String getTime() {
+	public int[] getTime() {
 		return time;
 	}
-	public void setTime(String time) {
+	public void setTime(int[] time) {
 		this.time = time;
 	}
 	
