@@ -105,8 +105,8 @@ public class Frame3 extends JFrame {
 		panel_1_2.add(timh);
 		
 		JButton btn1 = new JButton("Kante Krathsh");
-		btn1.setForeground(Color.LIGHT_GRAY);
-		btn1.setBackground(Color.DARK_GRAY);
+		btn1.setForeground(Color.WHITE);
+		btn1.setBackground(new Color(0, 128, 192));
 		btn1.setFont(new Font("Montestratt", Font.BOLD , 12));
 		btn1.setBounds(226, 66, 121, 41);
 		btn1.addActionListener(new ActionListener() {

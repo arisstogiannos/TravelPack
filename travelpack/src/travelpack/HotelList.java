@@ -21,7 +21,7 @@ public class HotelList {
 		        String[] arrOfStr =data.split(",", 5);
 		        Hotel h = new Hotel(arrOfStr[0].toUpperCase().trim(), arrOfStr[1].toUpperCase().trim(), Integer.parseInt(arrOfStr[2].trim()), Integer.parseInt(arrOfStr[3].trim()));
 		        h.calculatePrice(uo);
-		       ;
+		       
 		        hotels.add(h);
 		        
 		      }

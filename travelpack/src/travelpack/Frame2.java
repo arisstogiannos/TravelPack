@@ -20,7 +20,6 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -106,8 +105,20 @@ public class Frame2 extends JFrame {
 		
 		JComboBox ewsCb = new JComboBox();
 		ewsCb.addItem("Ews");
-		for(int i = 0; i<25; i++)
-			ewsCb.addItem(i);
+		apoCb.addActionListener(new ActionListener() {
+            @Override
+           
+			
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if(!apoCb.getItemAt(apoCb.getSelectedIndex()).equals("Apo"))
+        			for(int i = (Integer)apoCb.getItemAt(apoCb.getSelectedIndex())+1; i<25; i++)
+        				ewsCb.addItem(i); 
+			}
+        });
+		if(!apoCb.getItemAt(apoCb.getSelectedIndex()).equals("Apo"))
+			for(int i = Integer.parseInt((String)apoCb.getItemAt(apoCb.getSelectedIndex()))+1; i<25; i++)
+				ewsCb.addItem(i);
 		ewsCb.setBackground(Color.DARK_GRAY);
 		ewsCb.setForeground(Color.LIGHT_GRAY);
 		ewsCb.setBounds(143, 148, 55, 18);

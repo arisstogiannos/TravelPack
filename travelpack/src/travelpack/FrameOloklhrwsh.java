@@ -40,9 +40,11 @@ public class FrameOloklhrwsh extends JFrame {
 		lblHKrathshOloklhrwthike.setBounds(68, 57, 211, 23);
 		contentPane.add(lblHKrathshOloklhrwthike);
 		
-		JButton btnNewButton = new JButton("Exit");
-		btnNewButton.setForeground(new Color(255, 0, 0));
-		btnNewButton.setBounds(243, 196, 89, 23);
+		JButton btnNewButton = new JButton("Return to home page");
+		btnNewButton.setBackground(new Color(0, 128, 192));
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("Poppins", Font.PLAIN, 18));
+		btnNewButton.setBounds(243, 196, 309, 40);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("New label");
@@ -56,7 +58,9 @@ public class FrameOloklhrwsh extends JFrame {
 	
 	private class CloseListener implements ActionListener{
 	    public void actionPerformed(ActionEvent e) {
-	        System.exit(0);
+	    	dispose();
+	    	Frame1 f1=new Frame1();
+	    	f1.setVisible(true);
 	    }
 	}
 }

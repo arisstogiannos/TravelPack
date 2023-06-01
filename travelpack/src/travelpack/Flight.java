@@ -13,6 +13,8 @@ public class Flight {
 	private int[] dateAsNum;
 	private String date;
 	private int time;
+	private String timeAsString;
+	private int seats;
 	
 	public String getName() {
 		return name;
@@ -82,23 +84,32 @@ public class Flight {
 	public void setDate(String date) {
 		this.date = date;
 	}
+	
+	
+
+	public String getTimeAsString() {
+		return timeAsString;
+	}
 
 
 	public Flight(String departureCity, String destinationCity, Object type, 
-			      boolean baggage, int[] date, int time[]) {
+			      boolean baggage, int[] date, int time[], String dateAsString, int seats) {
 		this.name="Pamak AirLines";
 		this.departureCity = departureCity;
 		this.destinationCity = destinationCity;
 		this.type = type;
 		this.baggage = baggage;
 		this.dateAsNum = date;
-		this.price = calculatePrice(baggage, type);
+		this.date=dateAsString;
+		this.price = calculatePrice(baggage, type, seats);
 		Random rand = new Random();
 		this.time = rand.nextInt(time[1]-time[0])+time[0];
+		this.timeAsString=Integer.toString(this.time);
+		this.seats=seats;
 	}
 	
 	
-	public int calculatePrice(boolean baggage, Object type) {
+	public int calculatePrice(boolean baggage, Object type, int seats) {
 		Random rand = new Random();
 		int price=rand.nextInt(120-80+1)+80;
 		if(baggage) {
@@ -110,7 +121,7 @@ public class Flight {
 			price = price * 2;
 		}
 		
-		return price;
+		return price*seats;
 	}
 	
 }

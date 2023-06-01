@@ -1,36 +1,36 @@
-    La Belle Epoque Hotel, Paris, 120, 1
-    Das Grüne Oase, Berlin, 100, 2
-    Hotel am Fluss, Berlin, 130, 3
-    La Casa del Sol, Madrid, 110, 4
-    Hotel Reina, Madrid, 140, 5
-    L'Oasi Eterna, Rome, 150, 6
-    Hotel Bellavista, Rome, 90, 7
-    Athenian Palace Hotel, Athens, 120, 8
-    Olive Grove Resort, Athens, 100, 9
-    Hotel Parthenon, Athens, 110, 10
-    Hotel Amadeus, Vienna, 130, 11
-    The Dubliner's Rest, Dublin, 100, 12
-    The Riverside Hotel, Dublin, 140, 13
-    The Cloverleaf Inn, Dublin, 120, 14
-    Pod Lipami Hotel, Prague, 100, 15
-    Hotel Vltava, Prague, 90, 16
-    Hotel Królewski, Warsaw, 130, 17
-    Hotel Warszawa, Warsaw, 140, 18
-    O Jardim Encantado, Lisbon, 130, 19
-    Hotel Miradouro, Lisbon, 100, 20
-    Palace Grand Hotel, Budapest, 80, 21
-    Majestic Plaza Hotel, Prague, 110, 22
-    Royal Oasis Hotel, Dublin, 100, 23
-    Grand Excelsior Hotel, Rome, 130, 24
-    Golden Crown Hotel, Vienna, 120, 25
-    Le Château Royale, Paris, 90, 26
-    Hôtel Lumière, Paris, 110, 27
-    Das Grandhotel, Berlin, 80, 28
-    Der Kronenplatz, Berlin, 100, 29
-    Hotel am Fluss, Berlin, 120, 30
-    El Palacio Real, Madrid, 90, 31
-    La Casa del Sol, Madrid, 110, 32
-    Hotel Reina, Madrid, 80, 33
-    Il Palazzo Imperiale, Rome, 130, 34
-    La Villa Romana, Rome, 90, 35
-    L'Oasi Eterna, Rome, 100, 36
+Le Château Royale, Paris,72,1
+La Belle Epoque Hotel, Paris,108,2
+Hôtel Lumière, Paris,76,3
+Das Grandhotel,Berlin,97,4
+Der Kronenplatz,Berlin,104,5
+Das Grüne Oase,Berlin,94,6
+Hotel am Fluss,Berlin,111,7
+El Palacio Real,Madrid,92,8
+La Casa del Sol,Madrid,51,9
+Hotel Reina,Madrid,69,10
+Il Palazzo Imperiale,Rome,91,11
+La Villa Romana, Rome,96,12
+L'Oasi Eterna, Rome,95,13
+Hotel Bellavista, Rome,58,14
+The Acropolis View Hotel, Athens,78,15
+Athenian Palace Hotel, Athens,88,16
+Olive Grove Resort, Athens,67,17
+Hotel Parthenon, Athens,67,18
+Das Kronenschloss, Vienna,96,19
+Der Himmelsgarten, Vienna,109,20
+Hotel Amadeus, Vienna,102,21
+The Emerald Manor, Dublin,71,22
+The Dubliner's Rest, Dublin,64,23
+The Riverside Hotel, Dublin,53,24
+The Cloverleaf Inn, Dublin,68,25
+U Zlatého Beránka, Prague,51,26
+Pod Lipami Hotel, Prague,82,27
+Hotel Vltava, Prague,70,28
+Pałac Wiejski, Warsaw,103,29
+Hotel Królewski, Warsaw,57,30
+Hotel Polonia, Warsaw,91,31
+Hotel Warszawa, Warsaw,56,32
+O Palácio Real, Lisbon,72,33
+A Casa dos Ventos, Lisbon,66,34
+O Jardim Encantado, Lisbon,84,35
+Hotel Miradouro, Lisbon,59,36

@@ -78,48 +78,53 @@ public class framepx extends JFrame {
 		flightPanel.setLayout(null);
 		
 		JLabel frmtdtxtfldAfethriaTo = new JLabel();
-		frmtdtxtfldAfethriaTo.setBackground(new Color(255, 255, 255));
-		frmtdtxtfldAfethriaTo.setForeground(new Color(255, 0, 0));
-		frmtdtxtfldAfethriaTo.setBounds(10, 11, 215, 35);
-		frmtdtxtfldAfethriaTo.setText("Afethria-Proorismos");
+//		frmtdtxtfldAfethriaTo.setBackground(new Color(255, 255, 255));
+//		frmtdtxtfldAfethriaTo.setForeground(new Color(0, 0, 0));
+		frmtdtxtfldAfethriaTo.setBounds(10, 5, 215, 17);
+		frmtdtxtfldAfethriaTo.setText("Afethria: "+p.getFlight().getDepartureCity());
 		frmtdtxtfldAfethriaTo.setHorizontalAlignment(SwingConstants.CENTER);
-		frmtdtxtfldAfethriaTo.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		frmtdtxtfldAfethriaTo.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		flightPanel.add(frmtdtxtfldAfethriaTo);
+		
+		
 		
 		JLabel frmtdtxtfldHmeromhnia = new JLabel();
 		frmtdtxtfldHmeromhnia.setForeground(new Color(0, 0, 0));
 		frmtdtxtfldHmeromhnia.setHorizontalAlignment(SwingConstants.CENTER);
-		frmtdtxtfldHmeromhnia.setBounds(10, 48, 215, 35);
-		frmtdtxtfldHmeromhnia.setText("Hmeromhnia");
-		frmtdtxtfldHmeromhnia.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		frmtdtxtfldHmeromhnia.setBounds(10, 35, 215, 17);
+		frmtdtxtfldHmeromhnia.setText("Hmeromhnia: "+p.getFlight().getDate());
+		frmtdtxtfldHmeromhnia.setFont(new Font("Tahoma", Font.PLAIN,17));
 		flightPanel.add(frmtdtxtfldHmeromhnia);
 		
 		JLabel frmtdtxtfldWraPthshs = new JLabel();
-		frmtdtxtfldWraPthshs.setBounds(10, 85, 215, 35);
-		frmtdtxtfldWraPthshs.setText("Wra pthshs");
+		frmtdtxtfldWraPthshs.setBounds(10, 65, 215, 17);
+		frmtdtxtfldWraPthshs.setText("Wra pthshs: "+p.getFlight().getTimeAsString()+":00");
 		frmtdtxtfldWraPthshs.setHorizontalAlignment(SwingConstants.CENTER);
-		frmtdtxtfldWraPthshs.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		frmtdtxtfldWraPthshs.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		flightPanel.add(frmtdtxtfldWraPthshs);
 		
 		JLabel frmtdtxtfldBaggage = new JLabel();
-		frmtdtxtfldBaggage.setBounds(10, 122, 106, 27);
-		frmtdtxtfldBaggage.setText("Baggage :Yes/No ");
+		frmtdtxtfldBaggage.setBounds(10, 95, 215, 17);
+		String b="No";
+		if(p.getFlight().isBaggage())
+			b="Yes";
+		frmtdtxtfldBaggage.setText("Baggage: "+b);
 		frmtdtxtfldBaggage.setHorizontalAlignment(SwingConstants.CENTER);
-		frmtdtxtfldBaggage.setFont(new Font("Tahoma", Font.ITALIC, 12));
+		frmtdtxtfldBaggage.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		flightPanel.add(frmtdtxtfldBaggage);
 		
 		JLabel frmtdtxtfldTypePthshs = new JLabel();
-		frmtdtxtfldTypePthshs.setBounds(119, 122, 106, 27);
-		frmtdtxtfldTypePthshs.setText("Type Pthshs");
+		frmtdtxtfldTypePthshs.setBounds(10, 125, 215, 17);
+		frmtdtxtfldTypePthshs.setText("Type Pthshs: "+p.getFlight().getType());
 		frmtdtxtfldTypePthshs.setHorizontalAlignment(SwingConstants.CENTER);
-		frmtdtxtfldTypePthshs.setFont(new Font("Tahoma", Font.ITALIC, 12));
+		frmtdtxtfldTypePthshs.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		flightPanel.add(frmtdtxtfldTypePthshs);
 		
 		JLabel frmtdtxtfldTelikhTimh = new JLabel();
-		frmtdtxtfldTelikhTimh.setBounds(10, 155, 215, 25);
-		frmtdtxtfldTelikhTimh.setText("Telikh Timh");
+		frmtdtxtfldTelikhTimh.setBounds(10, 155, 215, 17);
+		frmtdtxtfldTelikhTimh.setText("Timh Pthshs: "+p.getFlight().getPrice());
 		frmtdtxtfldTelikhTimh.setHorizontalAlignment(SwingConstants.CENTER);
-		frmtdtxtfldTelikhTimh.setFont(new Font("Tahoma", Font.BOLD, 27));
+		frmtdtxtfldTelikhTimh.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		flightPanel.add(frmtdtxtfldTelikhTimh);
 		
 		
@@ -214,7 +219,7 @@ public class framepx extends JFrame {
 		paymentPanel.add(txtCvv);
 		
 		JButton btnNewButton = new JButton("Oloklhrwsh Krathshs");
-		btnNewButton.setBackground(Color.DARK_GRAY);
+		btnNewButton.setBackground(new Color(0, 128, 192));
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Poppins", Font.BOLD, 16));
 
@@ -225,7 +230,7 @@ public class framepx extends JFrame {
 		lblStoixeiaPthshs.setText("Stoixeia Pthshs");
 		lblStoixeiaPthshs.setHorizontalAlignment(SwingConstants.CENTER);
 		lblStoixeiaPthshs.setFont(new Font("Dialog", Font.BOLD, 17));
-		lblStoixeiaPthshs.setBounds(-48, 180, 317, 38);
+		lblStoixeiaPthshs.setBounds(-38, 180, 317, 38);
 		contentPane.add(lblStoixeiaPthshs);
 		btnNewButton.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {

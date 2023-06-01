@@ -193,8 +193,8 @@ public class Frame1 extends JFrame {
 					uo.setDays(Integer.parseInt(DaysTextField.getText()));
 				}
 				
-				if(MonthTextField.getText().isBlank() || MonthTextField.getText().equals("Hmeromhnia(dd/mm/yyyy)")) {
-					errMsg+="Ημερομηνία \n";
+				if(MonthTextField.getText().isBlank() || MonthTextField.getText().equals("Hmeromhnia(dd/mm/yyyy)") || !Validator.validateJavaDate(MonthTextField.getText())) {
+					errMsg+="Ημερομηνία (π.χ 3/4/2023) \n";
 					flag = false;
 				}else {
 					uo.setDate(MonthTextField.getText());
