@@ -112,7 +112,7 @@ public class Frame3 extends JFrame {
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				framepx gui4 =new framepx(packetList.get(i), uo);
+				FramePlhrwmhs gui4 =new FramePlhrwmhs(packetList.get(i), uo);
 				dispose();
 				gui4.setVisible(true);
 			}});
