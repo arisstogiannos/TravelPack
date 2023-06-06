@@ -111,9 +111,13 @@ public class Frame2 extends JFrame {
 			
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				if(!apoCb.getItemAt(apoCb.getSelectedIndex()).equals("Apo"))
+				if(!apoCb.getItemAt(apoCb.getSelectedIndex()).equals("Apo")) {
+					ewsCb.removeAllItems();
+					ewsCb.addItem("Ews");
         			for(int i = (Integer)apoCb.getItemAt(apoCb.getSelectedIndex())+1; i<25; i++)
         				ewsCb.addItem(i); 
+        			
+				}	
 			}
         });
 		if(!apoCb.getItemAt(apoCb.getSelectedIndex()).equals("Apo"))

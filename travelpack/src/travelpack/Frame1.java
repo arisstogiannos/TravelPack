@@ -31,11 +31,13 @@ public class Frame1 extends JFrame {
 	private JTextField DaysTextField;
 	private JTextField MonthTextField;
 	private JComboBox destination;
-
+	private int max;
 	private JLabel lblNewLabel_1;
 
 
 	public Frame1() {
+		int i;
+		
 		
 		setTitle("TravelPack");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -124,33 +126,77 @@ public class Frame1 extends JFrame {
 		DaysTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
 		contentPane.add(DaysTextField);
 		
+		JComboBox dayCb = new JComboBox();
+		dayCb.addItem("Μέρα");
+		dayCb.setBounds(410, 168, 70, 34);
+		dayCb.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+		contentPane.add(dayCb);
 		
-		JTextField MonthTextField = new JTextField("Hmeromhnia(dd/mm/yyyy)");
-		MonthTextField.addKeyListener(new KeyAdapter() {
-		    public void keyTyped(KeyEvent e) {
-		        char c = e.getKeyChar();
-		        if (!((c >= '0') && (c <= '9') ||
-		           (c == KeyEvent.VK_BACK_SPACE) ||
-		           (c == KeyEvent.VK_SLASH)||
-		           (c == KeyEvent.VK_DELETE))) {
-		          getToolkit().beep();
-		          e.consume();
-		        }
-		      }
-		    });
-		MonthTextField.addMouseListener(new MouseAdapter(){
-            @Override
-            public void mouseClicked(MouseEvent e){
-            	MonthTextField.setText("");
-            }
-        });
-		MonthTextField.setHorizontalAlignment(SwingConstants.CENTER);
-		MonthTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
-		MonthTextField.setBounds(333, 168, 189, 34);
-		MonthTextField.setColumns(10);
-		MonthTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
-		MonthTextField.setToolTipText("Format should be dd/mm/yyyy (e.g 12/3/2023)");
-		contentPane.add(MonthTextField);
+		JComboBox monthCb = new JComboBox();
+		monthCb.addItem("Μήνας");
+		for(i=1;i<=12;i++) {
+			monthCb.addItem(Integer.toString(i));
+		}
+		monthCb.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				dayCb.removeAllItems();
+				dayCb.addItem("Μέρα");
+				if(Integer.parseInt((String)monthCb.getItemAt(monthCb.getSelectedIndex()))==2)
+					max=28;
+				else if (Integer.parseInt((String)monthCb.getItemAt(monthCb.getSelectedIndex())) %2==0)
+					max=30;
+				else
+					max=31;
+				
+				for(int i=1;i<=max;i++) {
+					dayCb.addItem(Integer.toString(i));
+				}
+			}
+		
+		});
+		monthCb.setBounds(333, 168, 70, 34);
+		monthCb.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+		contentPane.add(monthCb);
+		
+		
+		
+		
+		JComboBox yearCb = new JComboBox();
+		yearCb.addItem("Χρόνος");
+		yearCb.addItem("2023");
+		yearCb.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+
+		yearCb.setBounds(487, 168, 70, 34);
+		contentPane.add(yearCb);
+//		JTextField MonthTextField = new JTextField("Hmeromhnia(dd/mm/yyyy)");
+//		MonthTextField.addKeyListener(new KeyAdapter() {
+//		    public void keyTyped(KeyEvent e) {
+//		        char c = e.getKeyChar();
+//		        if (!((c >= '0') && (c <= '9') ||
+//		           (c == KeyEvent.VK_BACK_SPACE) ||
+//		           (c == KeyEvent.VK_SLASH)||
+//		           (c == KeyEvent.VK_DELETE))) {
+//		          getToolkit().beep();
+//		          e.consume();
+//		        }
+//		      }
+//		    });
+//		MonthTextField.addMouseListener(new MouseAdapter(){
+//            @Override
+//            public void mouseClicked(MouseEvent e){
+//            	MonthTextField.setText("");
+//            }
+//        });
+//		MonthTextField.setHorizontalAlignment(SwingConstants.CENTER);
+//		MonthTextField.setFont(new Font("Poppins", Font.PLAIN, 15));
+//		MonthTextField.setBounds(333, 168, 189, 34);
+//		MonthTextField.setColumns(10);
+//		MonthTextField.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+//		MonthTextField.setToolTipText("Format should be dd/mm/yyyy (e.g 12/3/2023)");
+//		contentPane.add(MonthTextField);
 		
 		
 		
@@ -193,11 +239,11 @@ public class Frame1 extends JFrame {
 					uo.setDays(Integer.parseInt(DaysTextField.getText()));
 				}
 				
-				if(MonthTextField.getText().isBlank() || MonthTextField.getText().equals("Hmeromhnia(dd/mm/yyyy)") || !Validator.validateJavaDate(MonthTextField.getText())) {
-					errMsg+="Ημερομηνία (π.χ 3/4/2023) \n";
+				if( dayCb.getItemAt(dayCb.getSelectedIndex()).equals("Μέρα")|| monthCb.getItemAt(monthCb.getSelectedIndex()).equals("Μήνας") || yearCb.getItemAt(yearCb.getSelectedIndex()).equals("Χρόνος")) {
+					errMsg+="Ημερομηνία \n";
 					flag = false;
 				}else {
-					uo.setDate(MonthTextField.getText());
+					uo.setDate((String)dayCb.getItemAt(dayCb.getSelectedIndex())+"/"+(String)monthCb.getItemAt(monthCb.getSelectedIndex())+"/"+(String)yearCb.getItemAt(yearCb.getSelectedIndex()));
 				}
 					
 					
