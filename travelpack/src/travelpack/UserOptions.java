@@ -105,6 +105,7 @@ public class UserOptions {
 	}
 
 	public int[] getDate() {
+		//Επιστροφή ημερομηνιας ως πινακασ οπου στη θεση 0 ειναι ο μηαε και στη θεση 1 η μερα
 		int[] dates = { 1, 1, 1 };
 		String[] strArr = date.split("/", 3);
 		for (int i = 0; i < strArr.length; i++) {

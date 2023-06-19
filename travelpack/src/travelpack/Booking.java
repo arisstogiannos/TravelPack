@@ -26,7 +26,8 @@ public class Booking {
 	}
 
 	public static ArrayList<Booking> createBookings(String hotelName) {
-//		συνάρτηση που διαβάζει το αρχειο bookings και δημιουργει μια λιστα τυπου Booking
+//		συνάρτηση που διαβάζει το αρχειο bookings με τις κρατησεις που εχουν ολοκληρωθει για ολα τα ξενοδοχεια
+		// και δημιουργει μια λιστα τυπου Booking
 //		με ολες τις κρατησεις που αφορουν το ξενοδοχείο
 		ArrayList<Booking> bookings = new ArrayList<>();
 		String a[] = new String[6];

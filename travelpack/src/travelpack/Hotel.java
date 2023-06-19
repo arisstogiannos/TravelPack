@@ -16,7 +16,7 @@ public class Hotel {
 	private String city;
 	private int price;
 	private int code;
-	ArrayList<Room> rooms;
+	ArrayList<Room> rooms;//λιστα δωματιων του ξενοδοχειου
 	ArrayList<Booking> bookings;
 
 	public String getName() {
@@ -75,10 +75,21 @@ public class Hotel {
 
 							available = r.getAvailable();
 							for (int z = booking.getDay() - 1; z <= booking.getDay() - 1 + booking.getDays(); z++) {
-								if (z - 31 >= 0)
-									available[booking.getMonth() % 12][z % 31] = false;
+								int monthDays;
+								if (booking.getMonth() == 2)
+									monthDays = 28;
+								else if (booking.getMonth() % 2 == 0)
+									monthDays = 30;
 								else
+									monthDays = 31;
+
+								if (z - monthDays >= 0) {//Περιπτωση που αλλάζει ο μήνας
+									if (booking.getMonth() == 12)
+										break;
+									available[booking.getMonth() % 12][z % 31] = false;
+								} else {
 									available[booking.getMonth() - 1][z] = false;
+								}
 							}
 							r.setAvailable(available);
 						}
