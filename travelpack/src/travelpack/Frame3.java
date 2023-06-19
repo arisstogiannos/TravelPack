@@ -13,8 +13,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+// Η κλάση Frame3 εμφανίζει τα διαθέσιμα πακέτα στο χρήστη
 public class Frame3 extends JFrame {
 	
 	ImageIcon image;
@@ -29,7 +31,6 @@ public class Frame3 extends JFrame {
 
 	public Frame3(ArrayList<Packet> packetList, UserOptions uo) {
 
-	
 
 		
 		int listSize = packetList.size();
@@ -44,7 +45,7 @@ public class Frame3 extends JFrame {
 		contentPane.setLayout(null);
 		
 
-		Label label_2 = new Label("Diathesima Ksenodoxeia - Apotelesmata "+listSize+" apo "+listSize+" sunolika");
+		Label label_2 = new Label("Available hotels - Results "+listSize+" out of "+listSize+" total");
 		label_2.setAlignment(Label.CENTER);
 		label_2.setForeground(Color.LIGHT_GRAY);
 		label_2.setFont(new Font("Dialog", Font.BOLD, 17));
@@ -64,47 +65,52 @@ public class Frame3 extends JFrame {
 	public void addPanel(ArrayList<Packet> packetList, ArrayList<JPanel> panels, int i, int y, UserOptions uo) {
 		
 		
+		JPanel panelPhoto = new JPanel();
+		panelPhoto.setLayout(null);
+		panelPhoto.setForeground(Color.BLACK);
+		panelPhoto.setBackground(Color.LIGHT_GRAY);
+		panelPhoto.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
+		panelPhoto.setBounds(10, y, 120, 118);
+		panels.add(panelPhoto);
 		
-		JPanel panel_1_1_1 = new JPanel();
-		panel_1_1_1.setLayout(null);
-		panel_1_1_1.setForeground(Color.BLACK);
-		panel_1_1_1.setBackground(Color.LIGHT_GRAY);
-		panel_1_1_1.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
-		panel_1_1_1.setBounds(10, y, 120, 118);
-		panels.add(panel_1_1_1);
+		JLabel photolbl = new JLabel("<html>"+ "Hotel photo"+"</html>");
+		photolbl.setBounds(10, 30, 90, 40);
+		photolbl.setFont(new Font("Dialog", Font.PLAIN, 15));
+		photolbl.setHorizontalAlignment(SwingConstants.CENTER);
+		panelPhoto.add(photolbl);
 		
 		
 		
 	
-		JPanel panel_1_2 = new JPanel();
-		panel_1_2.setLayout(null);
-		panel_1_2.setBackground(Color.LIGHT_GRAY);
-		panel_1_2.setForeground(Color.BLACK);
-		panel_1_2.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
-		panel_1_2.setBounds(136, y, 357, 118);
-		panels.add(panel_1_2);
+		JPanel infoPanel = new JPanel();
+		infoPanel.setLayout(null);
+		infoPanel.setBackground(Color.LIGHT_GRAY);
+		infoPanel.setForeground(Color.BLACK);
+		infoPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
+		infoPanel.setBounds(136, y, 357, 118);
+		panels.add(infoPanel);
 		
 		Label label_3_1 = new Label(packetList.get(i).getHotel().getName());
 		label_3_1.setForeground(Color.DARK_GRAY);
 		label_3_1.setFont(new Font("Poppins", Font.PLAIN, 15));
 		label_3_1.setBounds(10, 10, 230, 22);
-		panel_1_2.add(label_3_1);
+		infoPanel.add(label_3_1);
 		
 		
 		
-		Label label_3_1_1 = new Label("Timh paketou:");
+		Label label_3_1_1 = new Label("Total price:");
 		label_3_1_1.setForeground(Color.DARK_GRAY);
 		label_3_1_1.setFont(new Font("Dialog", Font.PLAIN, 15));
-		label_3_1_1.setBounds(240, 10, 100, 20);
-		panel_1_2.add(label_3_1_1);
+		label_3_1_1.setBounds(250, 10, 100, 20);
+		infoPanel.add(label_3_1_1);
 		
 		Label timh = new Label(packetList.get(i).getTotalprice()+"$");
 		timh.setForeground(Color.DARK_GRAY);
 		timh.setFont(new Font("Dialog", Font.PLAIN, 15));
 		timh.setBounds(290, 30, 50, 20);
-		panel_1_2.add(timh);
+		infoPanel.add(timh);
 		
-		JButton btn1 = new JButton("Kante Krathsh");
+		JButton btn1 = new JButton("Make booking");
 		btn1.setForeground(Color.WHITE);
 		btn1.setBackground(new Color(0, 128, 192));
 		btn1.setFont(new Font("Montestratt", Font.BOLD , 12));
@@ -116,6 +122,6 @@ public class Frame3 extends JFrame {
 				dispose();
 				gui4.setVisible(true);
 			}});
-		panel_1_2.add(btn1);
+		infoPanel.add(btn1);
 	}
 }

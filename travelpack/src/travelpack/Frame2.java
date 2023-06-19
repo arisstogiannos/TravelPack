@@ -29,28 +29,27 @@ public class Frame2 extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtApo;
 	private JTextField txtEws;
-	
+
 	public Frame2(UserOptions uo) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 462, 543);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("Flight");
 		lblNewLabel.setFont(new Font("MS PGothic", Font.BOLD, 28));
 		lblNewLabel.setForeground(Color.LIGHT_GRAY);
 		lblNewLabel.setBounds(193, 30, 73, 39);
 		contentPane.add(lblNewLabel);
-		
+
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(205, 250, 1, 1);
 		contentPane.add(layeredPane);
-		
+
 		JPanel panel = new JPanel();
 		panel.setForeground(Color.BLACK);
 		panel.setBounds(103, 67, 253, 177);
@@ -58,90 +57,75 @@ public class Frame2 extends JFrame {
 		panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		contentPane.add(panel);
 		panel.setLayout(null);
-		
-		Label label = new Label("Kathgoria Kampinas");
+
+		Label label = new Label("Ticket category");
 		label.setForeground(Color.DARK_GRAY);
 		label.setFont(new Font("Poppins", Font.PLAIN, 15));
-		label.setBounds(56, 10, 135, 22);
+		label.setBounds(60, 10, 135, 22);
 		panel.add(label);
-		
-		Label label_2 = new Label("Aposkeues");
+
+		Label label_2 = new Label("Baggage");
 		label_2.setForeground(Color.DARK_GRAY);
 		label_2.setFont(new Font("Poppins", Font.PLAIN, 15));
 		label_2.setBounds(84, 64, 125, 22);
 		panel.add(label_2);
-		
+
 		ButtonGroup group = new ButtonGroup();
-		
+
 		JRadioButton radioYes = new JRadioButton("Yes");
 		radioYes.setFont(new Font("Poppins", Font.PLAIN, 12));
 		radioYes.setBackground(Color.LIGHT_GRAY);
 		radioYes.setBounds(61, 92, 50, 22);
 		panel.add(radioYes);
-		
-		JRadioButton radioNo = new JRadioButton("No",true);
+
+		JRadioButton radioNo = new JRadioButton("No", true);
 		radioNo.setFont(new Font("Poppins", Font.PLAIN, 12));
 		radioNo.setBackground(Color.LIGHT_GRAY);
 		radioNo.setBounds(143, 92, 50, 22);
 		panel.add(radioNo);
-		
+
 		group.add(radioNo);
 		group.add(radioYes);
-		
-		Label label_2_1 = new Label("Wra Anaxwrhshs");
+
+		Label label_2_1 = new Label("Departure Time");
 		label_2_1.setForeground(Color.DARK_GRAY);
 		label_2_1.setFont(new Font("Poppins", Font.PLAIN, 15));
 		label_2_1.setBounds(71, 120, 125, 22);
 		panel.add(label_2_1);
-		
+
 		JComboBox apoCb = new JComboBox();
-		apoCb.addItem("Apo");
-		for(int i = 0; i<25; i++)
+		apoCb.addItem("From");
+		for (int i = 0; i < 25; i++)
 			apoCb.addItem(i);
 		apoCb.setBackground(Color.DARK_GRAY);
 		apoCb.setForeground(Color.LIGHT_GRAY);
 		apoCb.setBounds(53, 148, 55, 18);
 		panel.add(apoCb);
-		
+
 		JComboBox ewsCb = new JComboBox();
-		ewsCb.addItem("Ews");
+		ewsCb.addItem("To");
 		apoCb.addActionListener(new ActionListener() {
-            @Override
-           
-			
+			@Override
+
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				if(!apoCb.getItemAt(apoCb.getSelectedIndex()).equals("Apo")) {
+				if (!apoCb.getItemAt(apoCb.getSelectedIndex()).equals("From")) {
 					ewsCb.removeAllItems();
-					ewsCb.addItem("Ews");
-        			for(int i = (Integer)apoCb.getItemAt(apoCb.getSelectedIndex())+1; i<25; i++)
-        				ewsCb.addItem(i); 
-        			
-				}	
+					ewsCb.addItem("To");
+					for (int i = (Integer) apoCb.getItemAt(apoCb.getSelectedIndex()) + 1; i < 25; i++)
+						ewsCb.addItem(i);
+
+				}
 			}
-        });
-		if(!apoCb.getItemAt(apoCb.getSelectedIndex()).equals("Apo"))
-			for(int i = Integer.parseInt((String)apoCb.getItemAt(apoCb.getSelectedIndex()))+1; i<25; i++)
-				ewsCb.addItem(i);
+		});
+//		if (!apoCb.getItemAt(apoCb.getSelectedIndex()).equals("From"))
+//			for (int i = Integer.parseInt((String) apoCb.getItemAt(apoCb.getSelectedIndex())) + 1; i < 25; i++)
+//				ewsCb.addItem(i);
 		ewsCb.setBackground(Color.DARK_GRAY);
 		ewsCb.setForeground(Color.LIGHT_GRAY);
 		ewsCb.setBounds(143, 148, 55, 18);
 		panel.add(ewsCb);
-		
-//		txtApo = new JTextField("Apo");
-//		txtApo.setHorizontalAlignment(SwingConstants.CENTER);
-//		txtApo.setFont(new Font("Poppins", Font.PLAIN, 13));
-//		txtApo.setColumns(10);
-//		txtApo.setBounds(53, 148, 35, 18);
-//		panel.add(txtApo);
-//		
-//		txtEws = new JTextField("Ews");
-//		txtEws.setHorizontalAlignment(SwingConstants.CENTER);
-//		txtEws.setFont(new Font("Poppins", Font.PLAIN, 13));
-//		txtEws.setColumns(10);
-//		txtEws.setBounds(143, 148, 35, 18);
-//		panel.add(txtEws);
-		
+
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(66, 38, 112, 22);
 		comboBox.addItem("A Class");
@@ -150,7 +134,7 @@ public class Frame2 extends JFrame {
 		comboBox.setBackground(Color.DARK_GRAY);
 		comboBox.setForeground(Color.LIGHT_GRAY);
 		panel.add(comboBox);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setForeground(Color.BLACK);
 		panel_1.setBounds(103, 279, 253, 171);
@@ -158,101 +142,101 @@ public class Frame2 extends JFrame {
 		panel_1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
-		
-		Label label_1 = new Label("Tupos Dwmatiou");
+
+		Label label_1 = new Label("Room Type");
 		label_1.setForeground(Color.DARK_GRAY);
 		label_1.setFont(new Font("Poppins", Font.PLAIN, 15));
-		label_1.setBounds(62, 10, 125, 22);
+		label_1.setBounds(66, 10, 125, 22);
 		panel_1.add(label_1);
-		
+
 		JComboBox cb = new JComboBox();
-		cb.addItem("Monoklino");
+		cb.addItem("Single Room");
 		cb.setForeground(Color.LIGHT_GRAY);
 		cb.setBackground(Color.DARK_GRAY);
 		cb.setBounds(60, 140, 112, 22);
-		
+
 		SpinnerModel value = new SpinnerNumberModel(1, 1, 4, 1);
 		JSpinner spinner = new JSpinner(value);
 		spinner.setBounds(90, 90, 35, 20);
 		spinner.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-            	cb.removeAllItems();
-				int val = (Integer)spinner.getValue();
-				
-				if(val > 0) 
-					cb.addItem("Monoklino");
+			@Override
+			public void stateChanged(ChangeEvent e) {
+//				Ανάλογα με τον αριθμό των ατόμων π εχουν επιλεχθει στο spinner εμφανίζονται και τα αντίστοιχα δωμάτια
+//				(για λόγους απλότητας ο χρήστης μπορει να επιλέξει μεχρι 4 άτομα για την κράτηση)
+				cb.removeAllItems();
+				int val = (Integer) spinner.getValue();
 
-				if(val > 1)
-					cb.addItem("Diklino");
-				
-				if(val > 2)
-					cb.addItem("Triklino");
-				
-				if(val > 3)
-					cb.addItem("Tetraklino");            }
-        });
+				if (val > 0)
+					cb.addItem("Single Room");
+
+				if (val > 1)
+					cb.addItem("Double Room");
+
+				if (val > 2)
+					cb.addItem("Triple Room");
+
+				if (val > 3)
+					cb.addItem("Quadruple Room");
+			}
+		});
 		panel_1.add(spinner);
-		
-		
-		Label label_2_1_1 = new Label("Arithmos Atomwn");
+
+		Label label_2_1_1 = new Label("Number of people");
 		label_2_1_1.setFont(new Font("Poppins", Font.PLAIN, 15));
 		label_2_1_1.setForeground(Color.DARK_GRAY);
 		label_2_1_1.setBounds(60, 64, 125, 22);
 		panel_1.add(label_2_1_1);
-		
-		Label label_2_1_1_1 = new Label("Epilogh Dwmatiou");
+
+		Label label_2_1_1_1 = new Label("Room Capacity");
 		label_2_1_1_1.setForeground(Color.DARK_GRAY);
 		label_2_1_1_1.setFont(new Font("Poppins", Font.PLAIN, 15));
 		label_2_1_1_1.setBounds(62, 110, 125, 22);
 		panel_1.add(label_2_1_1_1);
-		
-		
-		
-		
-		
+
 		panel_1.add(cb);
-		
-		
+
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setBackground(Color.DARK_GRAY);
-		comboBox_1.setForeground(Color.LIGHT_GRAY);		comboBox_1.setBounds(62, 38, 112, 22);
+		comboBox_1.setForeground(Color.LIGHT_GRAY);
+		comboBox_1.setBounds(62, 38, 112, 22);
 		comboBox_1.addItem("Simple");
 		comboBox_1.addItem("Suite");
 		panel_1.add(comboBox_1);
-		
+
 		JLabel lblHotel = new JLabel("Hotel");
 		lblHotel.setForeground(Color.LIGHT_GRAY);
 		lblHotel.setFont(new Font("MS PGothic", Font.BOLD, 28));
 		lblHotel.setBounds(193, 250, 73, 29);
 		contentPane.add(lblHotel);
-		
-		JButton btnEpomeno = new JButton("Epomeno");
+
+		JButton btnEpomeno = new JButton("Search");
 		btnEpomeno.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 		btnEpomeno.setBackground(new Color(0, 128, 192));
 		btnEpomeno.setBounds(70, 456, 309, 40);
 		btnEpomeno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+//				Έλεγχος ορθής καταχωρησης των πεδίων και καταχ΄ςριση των στοιχείων στις μεταβλητες ενός αντικειμενου UserOptions
 				boolean flag = true;
 				uo.setFlightType(comboBox.getItemAt(comboBox.getSelectedIndex()));
-				if(radioYes.isSelected())
+				if (radioYes.isSelected())
 					uo.setBaggage(true);
 				uo.setRoomType(comboBox_1.getItemAt(comboBox_1.getSelectedIndex()));
-				uo.setPplNum((Integer)spinner.getValue());
-				uo.setRoomCapacity((String)cb.getItemAt(cb.getSelectedIndex()));
-				
-				if(apoCb.getItemAt(apoCb.getSelectedIndex()).equals("Apo") || ewsCb.getItemAt(ewsCb.getSelectedIndex()).equals("Ews")) {
-					JOptionPane.showMessageDialog(contentPane, "Παρακαλώ συμπληρώστε ώρα");
+				uo.setPplNum((Integer) spinner.getValue());
+				uo.setRoomCapacity((String) cb.getItemAt(cb.getSelectedIndex()));
+
+				if (apoCb.getItemAt(apoCb.getSelectedIndex()).equals("From")
+						|| ewsCb.getItemAt(ewsCb.getSelectedIndex()).equals("To")) {
+					JOptionPane.showMessageDialog(contentPane, "Please enter departure time range");
 					flag = false;
-				}else {
-					int time[]= new int[2];
-					time[0]=(Integer)apoCb.getItemAt(apoCb.getSelectedIndex()); 
-					time[1]=(Integer)ewsCb.getItemAt(ewsCb.getSelectedIndex()); 
+				} else {
+					int time[] = new int[2];
+					time[0] = (Integer) apoCb.getItemAt(apoCb.getSelectedIndex());
+					time[1] = (Integer) ewsCb.getItemAt(ewsCb.getSelectedIndex());
 					uo.setTime(time);
 				}
-				
-				if(flag) {
-					Frame3 gui3=new Frame3(PacketList.createPacketList(uo), uo);
+
+				if (flag) {
+					Frame3 gui3 = new Frame3(PacketList.createPacketList(uo), uo);
 					dispose();
 					gui3.setVisible(true);
 				}

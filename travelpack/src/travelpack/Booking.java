@@ -14,11 +14,6 @@ public class Booking {
 	private int days;
 	private String hotelName;
 	private int code;
-	
-
-
-
-
 
 	public Booking(int day, int month, int year, int days, String hotelName, int code) {
 
@@ -29,48 +24,49 @@ public class Booking {
 		this.hotelName = hotelName;
 		this.code = code;
 	}
-	
-	 public static ArrayList<Booking> createBookings() {
-		 ArrayList<Booking> bookings =new ArrayList<>();
-		 String a[]= new String[6];
-		 
-		 try {
-		      File f = new File("Bookings.txt");
-		      Scanner myReader = new Scanner(f);
-		      while (myReader.hasNextLine()) {
-		        String data = myReader.nextLine();
-		        a =data.split("/", 6);
-		        bookings.add(new Booking(Integer.parseInt(a[0]),Integer.parseInt(a[1]),
-		        			 Integer.parseInt(a[2]),Integer.parseInt(a[3]),a[4],Integer.parseInt(a[5]))); 
-		      }
-		      myReader.close();
-		    } catch (FileNotFoundException e) {
-		      System.out.println("An error occurred.");
-		      e.printStackTrace();
-		    }
-		 return bookings;
-	 }
 
+	public static ArrayList<Booking> createBookings(String hotelName) {
+//		συνάρτηση που διαβάζει το αρχειο bookings και δημιουργει μια λιστα τυπου Booking
+//		με ολες τις κρατησεις που αφορουν το ξενοδοχείο
+		ArrayList<Booking> bookings = new ArrayList<>();
+		String a[] = new String[6];
 
+		try {
+			File f = new File("resources/Bookings.txt");
+			Scanner myReader = new Scanner(f);
+			while (myReader.hasNextLine()) {
+				String data = myReader.nextLine();
+				a = data.split("/", 6);
+				if (a[4].equals(hotelName))
+					bookings.add(new Booking(Integer.parseInt(a[0]), Integer.parseInt(a[1]), Integer.parseInt(a[2]),
+							Integer.parseInt(a[3]), a[4], Integer.parseInt(a[5])));
+			}
+			myReader.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+		return bookings;
+	}
 
+	public static void bookRoom(Hotel hotel, UserOptions uo) {
+//		Συνάρτηση που γραφει σε ενα αρχειο που διατηρει τα στοιχεια των κρατησεων κατα την ολοκλήρωση μια κράτησης απο τον χρήστη
+		Room availableRoom;
 
+		if (hotel.isAvailable(uo)) {
+			availableRoom = hotel.availableRoom(uo);
 
-	public static void bookRoom(Hotel hotel,UserOptions uo) {
-			Room availableRoom;
-		
-			if(hotel.isAvailable(uo)) {
-					availableRoom=hotel.availableRoom(uo);
-				
-					try {
-				      FileWriter myWriter = new FileWriter("Bookings.txt",true);
-				      myWriter.write(uo.getDateAsString()+"/"+uo.getDays()+"/"+hotel.getName()+"/"+availableRoom.getCode()+System.lineSeparator());
-				      myWriter.close();
-				    } catch (IOException e) {
-				      System.out.println("An error occurred.");
-				      e.printStackTrace();
-				    }
+			try {
+				FileWriter myWriter = new FileWriter("resources/Bookings.txt", true);
+				myWriter.write(uo.getDateAsString() + "/" + uo.getDays() + "/" + hotel.getName() + "/"
+						+ availableRoom.getCode() + System.lineSeparator());
+				myWriter.close();
+			} catch (IOException e) {
+				System.out.println("An error occurred.");
+				e.printStackTrace();
 			}
 		}
+	}
 
 	public int getDay() {
 		return day;
@@ -95,6 +91,5 @@ public class Booking {
 	public int getCode() {
 		return code;
 	}
-	
-	}
 
+}
