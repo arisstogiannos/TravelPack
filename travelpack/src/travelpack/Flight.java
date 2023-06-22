@@ -3,7 +3,7 @@ package travelpack;
 import java.util.Random;
 
 // Η κλάση Flight διατηρεί τα στοιχεία της πτησης που επιλέχθηκε(δημιουργήθηκε) σύμφωνα με τις επιλογές του χρηστη
-
+//
 public class Flight {
 
 	private String name;
@@ -93,20 +93,20 @@ public class Flight {
 		this.timeAsString = Integer.toString(this.time);
 		this.seats = seats;
 	}
-
+	//Η τιμή της πτήσης υπολογίζεται τυχαία 
 	public int calculatePrice(boolean baggage, Object type, int seats) {
 		Random rand = new Random();
 		int price = rand.nextInt(120 - 80 + 1) + 80;
 		if (baggage) {
-			price += 20;
+			price += 20;//οι αποσκευες ειναι συν 20 ευρω το ατομο
 		}
-		if (type.equals("AClass")) {
+		if (type.equals("AClass")) {//αναλογα με τ
 			price = price * 3;
 		} else if (type.equals("BClass")) {
 			price = price * 2;
 		}
 
-		return price * seats;
+		return price * seats;//επιστρεφεται η διαμορφωμένη τιμη επι τον αριθμο των ατόμων που περιλαμβάνοται στη κράτηση 
 	}
 
 }
